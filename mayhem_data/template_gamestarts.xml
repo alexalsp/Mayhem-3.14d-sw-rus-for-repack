@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<gamestarts>
+
+  <gamestart id="201" name="1. {race.argon}" description="Хаос! Целые звездные системы исчезают между странными гиперпространственными аномалиями. Ваш конвой попал под обстрел во время переброски на Кариду. Когда-то успешный командир, вы затерялись в пространстве и времени..." difficulty="TIE Перехватчик" image="" plot="0">
+    <player name="" species="" gender="" age="{galaxyname}"/>
+    <sector x="{sectorx.argon}" y="{sectory.argon}"/>
+    <ship typename="{ship.argon.m4}"/>
+  </gamestart>
+  
+  <gamestart id="202" name="2. {race.boron}" description="Хаос! Целые звездные системы исчезают между странными гиперпространственными аномалиями. Ваш конвой попал под обстрел во время переброски на Хоногр. Когда-то успешный командир, вы затерялись в пространстве и времени..." difficulty="Истребитель E-Крыло" image="" plot="0">
+    <player name="" species="" gender="" age="{galaxyname}"/>
+    <sector x="{sectorx.boron}" y="{sectory.boron}"/>
+    <ship typename="{ship.boron.m4}"/>
+  </gamestart>
+  
+  <gamestart id="203" name="3. {race.paranid}" description="Хаос! Целые звездные системы исчезают между странными гиперпространственными аномалиями. Ваш конвой попал под обстрел во время переброски на Салеуками. Когда-то успешный командир, вы затерялись в пространстве и времени..." difficulty="Дроид Три-Истребитель" image="" plot="0">
+    <player name="" species="" gender="" age="{galaxyname}"/>
+    <sector x="{sectorx.paranid}" y="{sectory.paranid}"/>
+    <ship typename="{ship.paranid.m4}"/>
+  </gamestart>
+  
+  <gamestart id="204" name="4. {race.split}" description="Хаос! Целые звездные системы исчезают между странными гиперпространственными аномалиями. Ваш конвой попал под обстрел во время переброски на Алдеран. Когда-то успешный командир, вы затерялись в пространстве и времени..." difficulty="Z-95A Охотник за головами" image="" plot="0">
+    <player name="" species="" gender="" age="{galaxyname}"/>
+    <sector x="{sectorx.split}" y="{sectory.split}"/>
+    <ship typename="{ship.split.m4}"/>
+  </gamestart>
+  
+  <gamestart id="205" name="5. {race.teladi}" description="Хаос! Целые звездные системы исчезают между странными гиперпространственными аномалиями. Ваш конвой попал под обстрел во время переброски на Набу. Когда-то успешный командир, вы затерялись в пространстве и времени..." difficulty="Ударный истребитель Аурек" image="" plot="0">
+    <player name="" species="" gender="" age="{galaxyname}"/>
+    <sector x="{sectorx.teladi}" y="{sectory.teladi}"/>
+    <ship typename="{ship.teladi.m4}"/>
+  </gamestart>
+  
+  <gamestart id="206" name="6. {race.terran}" description="Не поддерживается SWM3 !!! - Это особенный игровой старт, в котором вы являетесь единственной фракцией и призваны завоевать всю галактику заполненную Ксенонами. Не рекомендуется для новичков." difficulty="M6" image="" plot="0">
+    <player name="" species="" gender="" age="{galaxyname}"/>
+    <sector x="{sectorx.terran}" y="{sectory.terran}"/>
+    <!--<sector x="0" y="0"/>-->
+    <ship typename="{ship.terran.m6}"/>
+  </gamestart>
+    
+  <!--<gamestart id="106" name="Import" description="Import a previously exported Mayhem game. This is equivalent to a new game, but your game data is fully imported during the first minutes of the game." difficulty="Your exported game" image="" plot="0">
+    <player name="N/A" species="N/A" gender="N/A" age="N/A"/>
+    <sector x="0" y="0"/>
+    <ship typename="SS_SH_A_M5"/>
+  </gamestart>-->
+
+</gamestarts>
+

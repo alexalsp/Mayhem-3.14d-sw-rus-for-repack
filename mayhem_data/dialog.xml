@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<dialogs>
+  <window flags="#PB_Window_SystemMenu | #PB_Window_MinimizeGadget | #PB_Window_MaximizeGadget | #PB_Window_SizeGadget | #PB_Window_ScreenCentered" minwidth="830" text="Mayhem Galaxy Generator" minheight="786" name="window_1">
+    <vbox spacing="8" expand="item:5">
+      <hbox expand="item:2">
+        <text text="Корневая папка X3:" width="105" name="text_1"/>
+        <string flags="#PB_String_ReadOnly" name="string_1"/>
+        <button text="Изменить" name="button_1" onevent="Control::ChangeRoot()"/>
+        <button text="По умолчанию" name="button_9" onevent="Control::ChangeRootDefault()"/>
+        <button text="Открыть" name="button_12" onevent="Control::OpenRoot()"/>
+      </hbox>
+      <hbox expand="item:2">
+        <text text="Папка сохранений X3:" width="105" name="text_2"/>
+        <string flags="#PB_String_ReadOnly" name="string_2"/>
+        <button text="Изменить" name="button_2" onevent="Control::ChangeSave()"/>
+        <button text="По умолчанию" name="button_10" onevent="Control::ChangeSaveDefault()"/>
+        <button text="Открыть" name="button_13" onevent="Control::OpenSave()"/>
+        <button text="Резервировать" disabled="yes" name="button_14" onevent="Control::ManualBackup()"/>
+        <button text="Восстановить" disabled="yes" name="button_15" onevent="Control::ManualRestore()"/>
+      </hbox>
+      <frame text="Опции" name="frame_5">
+        <hbox expand="item:5">
+          <checkbox text="Не трогать файлы сохранений" name="checkbox_17" onevent="Control::CheckHandleSave()"/>
+          <checkbox text="Предпросмотр галактики" name="checkbox_22" onevent="Control::CheckGalaxyPreview()"/>
+          <checkbox text="Пропускать введение" name="checkbox_14" onevent="Control::CheckNoIntro()"/>
+          <checkbox text="Без стартового окна Х3" name="checkbox_15" onevent="Control::CheckNoSplash()"/>
+          <checkbox text="Не закрывать программу" name="checkbox_16" onevent="Control::CheckKeepOpen()"/>
+          <hyperlink text="Донат" flags="#PB_Hyperlink_Underline" name="hyperlink_1" onevent="Control::Donate()"/>
+        </hbox>
+      </frame>
+      <hbox expand="equal">
+        <text text="Сгенерированные галактики:" name="text_3"/>
+        <text text="Новая галактика:" name="text_13"/>
+      </hbox>
+      <hbox expand="equal">
+        <vbox spacing="10">
+          <listview name="listview_1" onleftclick="Control::SelectWorld()"/>
+          <canvas flags="#PB_Canvas_Border" name="canvas_1"/>
+        </vbox>
+        <vbox align="" expand="no">
+          <hbox expand="item:2">
+            <text text="Имя:" width="50" name="text_4"/>
+            <string name="string_3"/>
+            <button text="Случайное" name="button_11" onevent="Control::RandomName()"/>
+          </hbox>
+          <hbox expand="item:2">
+            <text text="Размер:" width="50" name="text_5"/>
+            <trackbar min="8" max="16" value="12" flags="#PB_TrackBar_Ticks" text="Width" width="100" height="24" name="trackbar_1"/>
+          </hbox>
+          <hbox expand="item:2">
+            <text text="Туман:" width="50" name="text_6"/>
+            <trackbar min="0" max="4" value="0" text="Height" width="100" height="24" flags="#PB_TrackBar_Ticks" name="trackbar_2"/>
+          </hbox>
+          <hbox>
+            <checkbox text="Использовать альтернативные саундтреки" name="checkbox_13"/>
+            <checkbox text="Включить звездную пыль" name="checkbox_23"/>
+          </hbox>
+          <frame text="История" name="frame_1">
+            <vbox>
+              <frame text="Галактическая экспансия: (неизвестные сектора, запуск ИИ заводов)" name="frame_6">
+                <vbox>
+                  <hbox>
+                    <option text="Нет" name="option_16" onevent="Control::OptionAge()"/>
+                    <option text="Низкая" name="option_1" onevent="Control::OptionAge()"/>
+                    <option text="Средняя" name="option_2" onevent="Control::OptionAge()"/>
+                    <option text="Высокая" name="option_3" onevent="Control::OptionAge()"/>
+                  </hbox>
+                </vbox>
+              </frame>
+              <frame text="Доминирующая раса: (больше секторов на старте игры)" name="frame_7">
+                <vbox>
+                  <hbox>
+                    <option text="Нет" name="option_14" onevent="Control::CheckDominanceMinority()"/>
+                    <option text="Аргон" name="option_4" onevent="Control::CheckDominanceMinority()"/>
+                    <option text="Борон" name="option_5" onevent="Control::CheckDominanceMinority()"/>
+                    <option text="Сплит" name="option_7" onevent="Control::CheckDominanceMinority()"/>
+                    <option text="Паранид" name="option_6" onevent="Control::CheckDominanceMinority()"/>
+                    <option text="Телади" name="option_8" onevent="Control::CheckDominanceMinority()"/>
+                  </hbox>
+                </vbox>
+              </frame>
+              <frame text="Менее развитая раса: (меньше секторов на старте игры)" name="frame_8">
+                <vbox>
+                  <hbox>
+                    <option text="Нет" name="option_15" onevent="Control::CheckDominanceMinority()"/>
+                    <option text="Аргон" name="option_9" onevent="Control::CheckDominanceMinority()"/>
+                    <option text="Борон" name="option_10" onevent="Control::CheckDominanceMinority()"/>
+                    <option text="Сплит" name="option_12" onevent="Control::CheckDominanceMinority()"/>
+                    <option text="Паранид" name="option_11" onevent="Control::CheckDominanceMinority()"/>
+                    <option text="Телади" name="option_13" onevent="Control::CheckDominanceMinority()"/>
+                  </hbox>
+                </vbox>
+              </frame>
+              <frame text="Отношения" name="frame_4">
+                <vbox>
+                  <listicon height="126" flags="#PB_ListIcon_CheckBoxes | #PB_ListIcon_GridLines" name="listicon_1" onleftclick="Control::CheckRaceRelations()"/>
+                </vbox>
+              </frame>
+            </vbox>
+          </frame>
+          <frame text="Свойства" name="frame_2">
+            <vbox>
+              <hbox expand="equal">
+                <vbox>
+                  <checkbox text="Рассеянная галактика" name="checkbox_18" onevent="Control::CheckScatteredHollowed()"/>
+                  <checkbox text="Дополнительная статистика по секторам" name="checkbox_19"/>
+                  <checkbox text="Ксенонские кластеры" name="checkbox_20"/>
+                </vbox>
+                <vbox>
+                  <checkbox text="Полая галактика" name="checkbox_10" onevent="Control::CheckScatteredHollowed()"/>
+                  <checkbox text="Разброс секторов Содружества" name="checkbox_2"/>
+                  <checkbox text="Ограниченные анклавы" name="checkbox_4"/>
+                </vbox>
+              </hbox>
+            </vbox>
+          </frame>
+        </vbox>
+      </hbox>
+      <hbox expand="equal">
+        <vbox>
+          <button text="Удалить" disabled="yes" name="button_3" onevent="Control::Delete()"/>
+          <button text="Запустить" disabled="yes" name="button_4" onevent="Control::Run()"/>
+        </vbox>
+        <vbox>
+          <button text="Генерировать галактику" name="button_6" onevent="Control::Generate()"/>
+          <button text="Случайные параметры галактики" name="button_8" onevent="Control::RandomizeAll()"/>
+        </vbox>
+      </hbox>
+    </vbox>
+  </window>
+</dialogs><!--DDesign0R Definition: PureBasic|0|0|0-->
