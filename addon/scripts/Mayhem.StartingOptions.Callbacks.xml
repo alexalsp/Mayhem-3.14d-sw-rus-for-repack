@@ -2657,7 +2657,7 @@
 			<text> </text>
 			<text>==</text>
 			<text> </text>
-			<var>[New Republic]</var>
+			<var>[New Republic (Races)]</var>
 		</line>
 		<line linenr="221" indent="&#160;&#160;&#160;">
 			<var>$M7</var>
@@ -2710,7 +2710,7 @@
 			<text> </text>
 			<text>==</text>
 			<text> </text>
-			<var>[Rebel Alliance]</var>
+			<var>[Rebel Alliance (Races)]</var>
 		</line>
 		<line linenr="228" indent="&#160;&#160;&#160;">
 			<var>$M7</var>
@@ -4272,7 +4272,7 @@
 			<text> </text>
 			<text>value</text>
 			<text>=</text>
-			<var>500</var>
+			<var>150</var>
 		</line>
 		<line linenr="353" indent="&#160;&#160;">
 			<text>else</text>
@@ -5101,7 +5101,7 @@
 			<text> </text>
 			<text>raceOrObject</text>
 			<text>=</text>
-			<var>[New Republic]</var>
+			<var>[New Republic (Races)]</var>
 		</line>
 		<line linenr="413" indent="">
 			<text>if</text>
@@ -5124,7 +5124,7 @@
 			<text> </text>
 			<text>race1</text>
 			<text>=</text>
-			<var>[New Republic]</var>
+			<var>[New Republic (Races)]</var>
 			<text> </text>
 			<text>race2</text>
 			<text>=</text>
@@ -5161,7 +5161,7 @@
 			<text> </text>
 			<text>race1</text>
 			<text>=</text>
-			<var>[New Republic]</var>
+			<var>[New Republic (Races)]</var>
 			<text> </text>
 			<text>race2</text>
 			<text>=</text>
@@ -5180,7 +5180,7 @@
 			<text> </text>
 			<text>!=</text>
 			<text> </text>
-			<var>[New Republic]</var>
+			<var>[New Republic (Races)]</var>
 		</line>
 		<line linenr="418" indent="" interruptable="@">
 			<text>=</text>
@@ -5198,7 +5198,7 @@
 			<text> </text>
 			<text>race1</text>
 			<text>=</text>
-			<var>[New Republic]</var>
+			<var>[New Republic (Races)]</var>
 			<text> </text>
 			<text>race2</text>
 			<text>=</text>
@@ -5232,7 +5232,7 @@
 			<text> </text>
 			<text>raceOrObject</text>
 			<text>=</text>
-			<var>[Rebel Alliance]</var>
+			<var>[Rebel Alliance (Races)]</var>
 		</line>
 		<line linenr="422" indent="">
 			<text>if</text>
@@ -5255,7 +5255,7 @@
 			<text> </text>
 			<text>race1</text>
 			<text>=</text>
-			<var>[Rebel Alliance]</var>
+			<var>[Rebel Alliance (Races)]</var>
 			<text> </text>
 			<text>race2</text>
 			<text>=</text>
@@ -5292,7 +5292,7 @@
 			<text> </text>
 			<text>race1</text>
 			<text>=</text>
-			<var>[Rebel Alliance]</var>
+			<var>[Rebel Alliance (Races)]</var>
 			<text> </text>
 			<text>race2</text>
 			<text>=</text>
@@ -5311,7 +5311,7 @@
 			<text> </text>
 			<text>!=</text>
 			<text> </text>
-			<var>[Rebel Alliance]</var>
+			<var>[Rebel Alliance (Races)]</var>
 		</line>
 		<line linenr="427" indent="" interruptable="@">
 			<text>=</text>
@@ -5329,7 +5329,7 @@
 			<text> </text>
 			<text>race1</text>
 			<text>=</text>
-			<var>[Rebel Alliance]</var>
+			<var>[Rebel Alliance (Races)]</var>
 			<text> </text>
 			<text>race2</text>
 			<text>=</text>
@@ -8856,7 +8856,7 @@
 					<sval type="int" val="5" />
 					<sval type="string" val="mayhemSW_researchBonus" />
 					<sval type="int" val="4" />
-					<sval type="int" val="500" />
+					<sval type="int" val="150" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />

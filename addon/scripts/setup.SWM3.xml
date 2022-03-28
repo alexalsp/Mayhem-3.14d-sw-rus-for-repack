@@ -14,10 +14,10 @@
 			<text> </text>
 			<text>=</text>
 			<text> </text>
-			<var>4</var>
+			<var>6</var>
 		</line>
 		<line linenr="003" indent="">
-			<comment>* SWM3 1.4 (Mayhem 3.14d)</comment>
+			<comment>* SWM3 1.6.1 (Mayhem 3.14d)</comment>
 		</line>
 		<line linenr="004" indent="" />
 		<line linenr="005" indent="">
@@ -48,10 +48,24 @@
 			<text> </text>
 			<text>:</text>
 		</line>
-		<line linenr="009" indent="">
-			<comment>* SWM3 doesnt have its own Init.Variables script so the following is put here</comment>
+		<line linenr="009" indent="" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>SWM3.Setup.Commands</call>
+			<text> </text>
+			<text>:</text>
 		</line>
 		<line linenr="010" indent="">
+			<comment>* SWM3 doesnt have its own Init.Variables script so the following is put here</comment>
+		</line>
+		<line linenr="011" indent="">
 			<var>$SatelliteWhitelist</var>
 			<text> </text>
 			<text>=</text>
@@ -67,13 +81,13 @@
 			<text>=</text>
 			<text>'SWmayhem_satwhitelists'</text>
 		</line>
-		<line linenr="011" indent="">
+		<line linenr="012" indent="">
 			<text>if</text>
 			<text> </text>
 			<text>!</text>
 			<var>$SatelliteWhitelist</var>
 		</line>
-		<line linenr="012" indent="&#160;">
+		<line linenr="013" indent="&#160;">
 			<var>$satwhitelists</var>
 			<text> </text>
 			<text>=</text>
@@ -82,7 +96,7 @@
 			<text> </text>
 			<text>alloc</text>
 		</line>
-		<line linenr="013" indent="&#160;">
+		<line linenr="014" indent="&#160;">
 			<var>$satwhitelist</var>
 			<text> </text>
 			<text>=</text>
@@ -91,7 +105,7 @@
 			<text> </text>
 			<text>alloc</text>
 		</line>
-		<line linenr="014" indent="&#160;">
+		<line linenr="015" indent="&#160;">
 			<text>table</text>
 			<text> </text>
 			<text>set</text>
@@ -108,7 +122,7 @@
 			<text> </text>
 			<var>$satwhitelist</var>
 		</line>
-		<line linenr="015" indent="&#160;">
+		<line linenr="016" indent="&#160;">
 			<text>set</text>
 			<text> </text>
 			<text>global</text>
@@ -124,32 +138,165 @@
 			<text>=</text>
 			<var>$satwhitelists</var>
 		</line>
-		<line linenr="016" indent="">
+		<line linenr="017" indent="">
 			<text>end</text>
 		</line>
-		<line linenr="017" indent="" />
 		<line linenr="018" indent="">
+			<comment>* safety check in case 'The Dark Force' mission didnt start properly</comment>
+		</line>
+		<line linenr="019" indent="">
+			<text>if</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'SWM3_firstResearchStationBuilt'</text>
+		</line>
+		<line linenr="020" indent="&#160;">
+			<text>if</text>
+			<text> </text>
+			<text>not</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'mayhem_prologue'</text>
+		</line>
+		<line linenr="021" indent="&#160;&#160;">
+			<text>if</text>
+			<text> </text>
+			<text>not</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'SWM3_KatanaMissionProgress'</text>
+		</line>
+		<line linenr="022" indent="&#160;&#160;&#160;" interruptable="@">
+			<var>$DarkForceMission</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.MissionEntry.Exists</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>missionName</text>
+			<text>=</text>
+			<text>'Тёмная сила'</text>
+		</line>
+		<line linenr="023" indent="&#160;&#160;&#160;">
+			<text>if</text>
+			<text> </text>
+			<text>not</text>
+			<text> </text>
+			<var>$DarkForceMission</var>
+		</line>
+		<line linenr="024" indent="&#160;&#160;&#160;&#160;">
+			<var>$t</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'Расшифруйте данные Дозора Смерти на исследовательской станции.'</text>
+		</line>
+		<line linenr="025" indent="&#160;&#160;&#160;&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.MissionEntry.Add</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>missionName</text>
+			<text>=</text>
+			<text>'Тёмная сила'</text>
+			<text> </text>
+			<text>entry</text>
+			<text>=</text>
+			<var>$t</var>
+		</line>
+		<line linenr="026" indent="&#160;&#160;&#160;&#160;">
+			<text>set</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'SWM3_KatanaMissionProgress'</text>
+			<text> </text>
+			<text>value</text>
+			<text>=</text>
+			<var>1</var>
+		</line>
+		<line linenr="027" indent="&#160;&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="028" indent="&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="029" indent="&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="030" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="031" indent="" />
+		<line linenr="032" indent="">
 			<text>gosub</text>
 			<text> </text>
 			<var>Maintenance</var>
 			<text>:</text>
 		</line>
-		<line linenr="019" indent="" />
-		<line linenr="020" indent="">
+		<line linenr="033" indent="" />
+		<line linenr="034" indent="">
 			<text>return</text>
 			<text> </text>
 			<var>null</var>
 		</line>
-		<line linenr="021" indent="" />
-		<line linenr="022" indent="">
+		<line linenr="035" indent="" />
+		<line linenr="036" indent="">
 			<comment>* =================================================</comment>
 		</line>
-		<line linenr="023" indent="" />
-		<line linenr="024" indent="">
+		<line linenr="037" indent="" />
+		<line linenr="038" indent="">
 			<var>Maintenance</var>
 			<text>:</text>
 		</line>
-		<line linenr="025" indent="&#160;">
+		<line linenr="039" indent="&#160;">
 			<var>$gameVersion</var>
 			<text> </text>
 			<text>=</text>
@@ -165,21 +312,21 @@
 			<text>=</text>
 			<text>'SWmayhemVersion'</text>
 		</line>
-		<line linenr="026" indent="&#160;" />
-		<line linenr="027" indent="&#160;">
+		<line linenr="040" indent="&#160;" />
+		<line linenr="041" indent="&#160;">
 			<text>if</text>
 			<text> </text>
 			<text>!</text>
 			<var>$gameVersion</var>
 		</line>
-		<line linenr="028" indent="&#160;&#160;">
+		<line linenr="042" indent="&#160;&#160;">
 			<var>$versionText</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
-			<text>'Star Wars Mayhem 3 установлен.'</text>
+			<text>'Star Wars Mayhem 3 has been installed.'</text>
 		</line>
-		<line linenr="029" indent="&#160;&#160;">
+		<line linenr="043" indent="&#160;&#160;">
 			<text>set</text>
 			<text> </text>
 			<text>global</text>
@@ -195,7 +342,7 @@
 			<text>=</text>
 			<var>$currentVersion</var>
 		</line>
-		<line linenr="030" indent="&#160;&#160;" interruptable="@">
+		<line linenr="044" indent="&#160;&#160;" interruptable="@">
 			<text>START</text>
 			<text> </text>
 			<var>[NULL]</var>
@@ -209,7 +356,7 @@
 			<text> </text>
 			<text>:</text>
 		</line>
-		<line linenr="031" indent="&#160;">
+		<line linenr="045" indent="&#160;">
 			<text>else</text>
 			<text> </text>
 			<text>if</text>
@@ -220,7 +367,7 @@
 			<text> </text>
 			<var>$currentVersion</var>
 		</line>
-		<line linenr="032" indent="&#160;&#160;">
+		<line linenr="046" indent="&#160;&#160;">
 			<text>set</text>
 			<text> </text>
 			<text>global</text>
@@ -236,11 +383,11 @@
 			<text>=</text>
 			<var>$currentVersion</var>
 		</line>
-		<line linenr="033" indent="&#160;&#160;" />
-		<line linenr="034" indent="&#160;&#160;">
+		<line linenr="047" indent="&#160;&#160;" />
+		<line linenr="048" indent="&#160;&#160;">
 			<comment>* Update encyclopedia and equipment price at each new update.</comment>
 		</line>
-		<line linenr="035" indent="&#160;&#160;">
+		<line linenr="049" indent="&#160;&#160;">
 			<text>set</text>
 			<text> </text>
 			<text>global</text>
@@ -256,7 +403,7 @@
 			<text>=</text>
 			<var>[TRUE]</var>
 		</line>
-		<line linenr="036" indent="&#160;&#160;" interruptable="@">
+		<line linenr="050" indent="&#160;&#160;" interruptable="@">
 			<text>START</text>
 			<text> </text>
 			<var>[NULL]</var>
@@ -270,11 +417,11 @@
 			<text> </text>
 			<text>:</text>
 		</line>
-		<line linenr="037" indent="&#160;&#160;" />
-		<line linenr="038" indent="&#160;&#160;">
+		<line linenr="051" indent="&#160;&#160;" />
+		<line linenr="052" indent="&#160;&#160;">
 			<comment>* 1.2 Hyperlanes</comment>
 		</line>
-		<line linenr="039" indent="&#160;&#160;">
+		<line linenr="053" indent="&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$gameVersion</var>
@@ -283,7 +430,7 @@
 			<text> </text>
 			<var>2</var>
 		</line>
-		<line linenr="040" indent="&#160;&#160;&#160;" interruptable="@">
+		<line linenr="054" indent="&#160;&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[NULL]</var>
@@ -297,7 +444,7 @@
 			<text> </text>
 			<text>:</text>
 		</line>
-		<line linenr="041" indent="&#160;&#160;&#160;">
+		<line linenr="055" indent="&#160;&#160;&#160;">
 			<var>$galaxyProgress</var>
 			<text> </text>
 			<text>=</text>
@@ -313,7 +460,7 @@
 			<text>=</text>
 			<text>'mayhem_galaxy.progress'</text>
 		</line>
-		<line linenr="042" indent="&#160;&#160;&#160;">
+		<line linenr="056" indent="&#160;&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$galaxyProgress</var>
@@ -322,7 +469,7 @@
 			<text> </text>
 			<var>1</var>
 		</line>
-		<line linenr="043" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="057" indent="&#160;&#160;&#160;&#160;">
 			<text>set</text>
 			<text> </text>
 			<text>global</text>
@@ -338,14 +485,14 @@
 			<text>=</text>
 			<var>[TRUE]</var>
 		</line>
-		<line linenr="044" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="058" indent="&#160;&#160;&#160;&#160;">
 			<var>$versionText</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<text>'SWM3 1.2: новый сюжет Гиперсеть считается завершенным, поскольку вы уже построили свой бесплатный Форпост.'</text>
 		</line>
-		<line linenr="045" indent="&#160;&#160;&#160;">
+		<line linenr="059" indent="&#160;&#160;&#160;">
 			<text>else</text>
 			<text> </text>
 			<text>if</text>
@@ -356,7 +503,7 @@
 			<text> </text>
 			<var>1</var>
 		</line>
-		<line linenr="046" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="060" indent="&#160;&#160;&#160;&#160;">
 			<text>do</text>
 			<text> </text>
 			<text>if</text>
@@ -372,7 +519,7 @@
 			<text>=</text>
 			<text>'mayhem_ascensionComplete'</text>
 		</line>
-		<line linenr="047" indent="&#160;&#160;&#160;&#160;&#160;" interruptable="@">
+		<line linenr="061" indent="&#160;&#160;&#160;&#160;&#160;" interruptable="@">
 			<text>START</text>
 			<text> </text>
 			<var>[NULL]</var>
@@ -386,17 +533,17 @@
 			<text> </text>
 			<text>:</text>
 		</line>
-		<line linenr="048" indent="&#160;&#160;&#160;">
+		<line linenr="062" indent="&#160;&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="049" indent="&#160;&#160;">
+		<line linenr="063" indent="&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="050" indent="&#160;&#160;" />
-		<line linenr="051" indent="&#160;&#160;">
+		<line linenr="064" indent="&#160;&#160;" />
+		<line linenr="065" indent="&#160;&#160;">
 			<comment>* 1.3 Mandalorian quest</comment>
 		</line>
-		<line linenr="052" indent="&#160;&#160;">
+		<line linenr="066" indent="&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$gameVersion</var>
@@ -405,7 +552,7 @@
 			<text> </text>
 			<var>3</var>
 		</line>
-		<line linenr="053" indent="&#160;&#160;&#160;">
+		<line linenr="067" indent="&#160;&#160;&#160;">
 			<var>$galaxyProgress</var>
 			<text> </text>
 			<text>=</text>
@@ -421,7 +568,7 @@
 			<text>=</text>
 			<text>'mayhem_galaxy.progress'</text>
 		</line>
-		<line linenr="054" indent="&#160;&#160;&#160;">
+		<line linenr="068" indent="&#160;&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$galaxyProgress</var>
@@ -430,7 +577,7 @@
 			<text> </text>
 			<var>2</var>
 		</line>
-		<line linenr="055" indent="&#160;&#160;&#160;&#160;" interruptable="@">
+		<line linenr="069" indent="&#160;&#160;&#160;&#160;" interruptable="@">
 			<var>$RepublicOutposts</var>
 			<text> </text>
 			<text>=</text>
@@ -450,7 +597,7 @@
 			<text>=</text>
 			<var>[Republic]</var>
 		</line>
-		<line linenr="056" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="070" indent="&#160;&#160;&#160;&#160;">
 			<var>$XS.Iterator1</var>
 			<text> </text>
 			<text>=</text>
@@ -463,17 +610,17 @@
 			<text> </text>
 			<var>$RepublicOutposts</var>
 		</line>
-		<line linenr="057" indent="&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="071" indent="&#160;&#160;&#160;&#160;&#160;">
 			<text>while</text>
 			<text> </text>
 			<var>$XS.Iterator1</var>
 		</line>
-		<line linenr="058" indent="&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="072" indent="&#160;&#160;&#160;&#160;&#160;">
 			<text>dec</text>
 			<text> </text>
 			<var>$XS.Iterator1</var>
 		</line>
-		<line linenr="059" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="073" indent="&#160;&#160;&#160;&#160;">
 			<var>$outpostType</var>
 			<text> </text>
 			<text>=</text>
@@ -483,7 +630,7 @@
 			<var>$XS.Iterator1</var>
 			<text>]</text>
 		</line>
-		<line linenr="060" indent="&#160;&#160;&#160;" interruptable="@">
+		<line linenr="074" indent="&#160;&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<text>wait</text>
@@ -492,7 +639,7 @@
 			<text> </text>
 			<text>ms</text>
 		</line>
-		<line linenr="061" indent="&#160;&#160;&#160;&#160;" interruptable="@">
+		<line linenr="075" indent="&#160;&#160;&#160;&#160;" interruptable="@">
 			<text>START</text>
 			<text> </text>
 			<var>$outpostType</var>
@@ -510,10 +657,10 @@
 			<text>=</text>
 			<var>80</var>
 		</line>
-		<line linenr="062" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="076" indent="&#160;&#160;&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="063" indent="&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="077" indent="&#160;&#160;&#160;&#160;&#160;">
 			<text>else</text>
 			<text> </text>
 			<text>if</text>
@@ -524,7 +671,7 @@
 			<text> </text>
 			<var>3</var>
 		</line>
-		<line linenr="064" indent="&#160;&#160;&#160;&#160;&#160;" interruptable="@">
+		<line linenr="078" indent="&#160;&#160;&#160;&#160;&#160;" interruptable="@">
 			<var>$RepublicOutposts</var>
 			<text> </text>
 			<text>=</text>
@@ -544,7 +691,7 @@
 			<text>=</text>
 			<var>[Republic]</var>
 		</line>
-		<line linenr="065" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="079" indent="&#160;&#160;&#160;&#160;">
 			<var>$XS.Iterator2</var>
 			<text> </text>
 			<text>=</text>
@@ -557,17 +704,17 @@
 			<text> </text>
 			<var>$RepublicOutposts</var>
 		</line>
-		<line linenr="066" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="080" indent="&#160;&#160;&#160;&#160;">
 			<text>while</text>
 			<text> </text>
 			<var>$XS.Iterator2</var>
 		</line>
-		<line linenr="067" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="081" indent="&#160;&#160;&#160;&#160;">
 			<text>dec</text>
 			<text> </text>
 			<var>$XS.Iterator2</var>
 		</line>
-		<line linenr="068" indent="&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="082" indent="&#160;&#160;&#160;&#160;&#160;">
 			<var>$outpostType</var>
 			<text> </text>
 			<text>=</text>
@@ -577,7 +724,7 @@
 			<var>$XS.Iterator2</var>
 			<text>]</text>
 		</line>
-		<line linenr="069" indent="&#160;&#160;&#160;&#160;&#160;" interruptable="@">
+		<line linenr="083" indent="&#160;&#160;&#160;&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<text>wait</text>
@@ -586,7 +733,7 @@
 			<text> </text>
 			<text>ms</text>
 		</line>
-		<line linenr="070" indent="&#160;&#160;&#160;&#160;" interruptable="@">
+		<line linenr="084" indent="&#160;&#160;&#160;&#160;" interruptable="@">
 			<text>START</text>
 			<text> </text>
 			<var>$outpostType</var>
@@ -604,10 +751,10 @@
 			<text>=</text>
 			<var>50</var>
 		</line>
-		<line linenr="071" indent="&#160;&#160;&#160;">
+		<line linenr="085" indent="&#160;&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="072" indent="&#160;&#160;&#160;" interruptable="@">
+		<line linenr="086" indent="&#160;&#160;&#160;" interruptable="@">
 			<var>$MandalorianOutposts</var>
 			<text> </text>
 			<text>=</text>
@@ -627,7 +774,7 @@
 			<text>=</text>
 			<var>[Mandalorian]</var>
 		</line>
-		<line linenr="073" indent="&#160;&#160;&#160;">
+		<line linenr="087" indent="&#160;&#160;&#160;">
 			<var>$XS.Iterator3</var>
 			<text> </text>
 			<text>=</text>
@@ -640,17 +787,17 @@
 			<text> </text>
 			<var>$MandalorianOutposts</var>
 		</line>
-		<line linenr="074" indent="&#160;&#160;&#160;">
+		<line linenr="088" indent="&#160;&#160;&#160;">
 			<text>while</text>
 			<text> </text>
 			<var>$XS.Iterator3</var>
 		</line>
-		<line linenr="075" indent="&#160;&#160;">
+		<line linenr="089" indent="&#160;&#160;">
 			<text>dec</text>
 			<text> </text>
 			<var>$XS.Iterator3</var>
 		</line>
-		<line linenr="076" indent="&#160;&#160;">
+		<line linenr="090" indent="&#160;&#160;">
 			<var>$outpostType</var>
 			<text> </text>
 			<text>=</text>
@@ -660,7 +807,7 @@
 			<var>$XS.Iterator3</var>
 			<text>]</text>
 		</line>
-		<line linenr="077" indent="&#160;&#160;" interruptable="@">
+		<line linenr="091" indent="&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<text>wait</text>
@@ -669,7 +816,7 @@
 			<text> </text>
 			<text>ms</text>
 		</line>
-		<line linenr="078" indent="&#160;&#160;" interruptable="@">
+		<line linenr="092" indent="&#160;&#160;" interruptable="@">
 			<text>START</text>
 			<text> </text>
 			<var>$outpostType</var>
@@ -687,13 +834,13 @@
 			<text>=</text>
 			<var>50</var>
 		</line>
-		<line linenr="079" indent="&#160;&#160;&#160;">
+		<line linenr="093" indent="&#160;&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="080" indent="&#160;&#160;&#160;">
+		<line linenr="094" indent="&#160;&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="081" indent="&#160;&#160;&#160;" interruptable="@">
+		<line linenr="095" indent="&#160;&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[NULL]</var>
@@ -707,7 +854,7 @@
 			<text> </text>
 			<text>:</text>
 		</line>
-		<line linenr="082" indent="&#160;&#160;&#160;">
+		<line linenr="096" indent="&#160;&#160;&#160;">
 			<text>set</text>
 			<text> </text>
 			<text>global</text>
@@ -723,7 +870,7 @@
 			<text>=</text>
 			<var>0</var>
 		</line>
-		<line linenr="083" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="097" indent="&#160;&#160;&#160;&#160;">
 			<text>remove</text>
 			<text> </text>
 			<text>encyclopedia</text>
@@ -737,14 +884,14 @@
 			<text>=</text>
 			<text>'Readtext9974-3013'</text>
 		</line>
-		<line linenr="084" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="098" indent="&#160;&#160;&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="085" indent="&#160;&#160;&#160;" />
-		<line linenr="086" indent="&#160;&#160;&#160;">
+		<line linenr="099" indent="&#160;&#160;&#160;" />
+		<line linenr="100" indent="&#160;&#160;&#160;">
 			<comment>* 1.4 Katana Fleet</comment>
 		</line>
-		<line linenr="087" indent="&#160;&#160;&#160;">
+		<line linenr="101" indent="&#160;&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$gameVersion</var>
@@ -753,7 +900,7 @@
 			<text> </text>
 			<var>4</var>
 		</line>
-		<line linenr="088" indent="&#160;&#160;&#160;&#160;" interruptable="@">
+		<line linenr="102" indent="&#160;&#160;&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[NULL]</var>
@@ -767,14 +914,14 @@
 			<text> </text>
 			<text>:</text>
 		</line>
-		<line linenr="089" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="103" indent="&#160;&#160;&#160;&#160;">
 			<var>$versionText</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<text>'SWM3 обновлен до версии 1.4'</text>
 		</line>
-		<line linenr="090" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="104" indent="&#160;&#160;&#160;&#160;">
 			<var>$MandoMammoths</var>
 			<text> </text>
 			<text>=</text>
@@ -798,7 +945,7 @@
 			<text>=</text>
 			<var>{Neutral Race Mammoth}</var>
 		</line>
-		<line linenr="091" indent="&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="105" indent="&#160;&#160;&#160;&#160;&#160;">
 			<var>$XS.Iterator4</var>
 			<text> </text>
 			<text>=</text>
@@ -811,17 +958,17 @@
 			<text> </text>
 			<var>$MandoMammoths</var>
 		</line>
-		<line linenr="092" indent="&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="106" indent="&#160;&#160;&#160;&#160;&#160;">
 			<text>while</text>
 			<text> </text>
 			<var>$XS.Iterator4</var>
 		</line>
-		<line linenr="093" indent="&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="107" indent="&#160;&#160;&#160;&#160;&#160;">
 			<text>dec</text>
 			<text> </text>
 			<var>$XS.Iterator4</var>
 		</line>
-		<line linenr="094" indent="&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="108" indent="&#160;&#160;&#160;&#160;&#160;">
 			<var>$Mammoth</var>
 			<text> </text>
 			<text>=</text>
@@ -831,16 +978,17 @@
 			<var>$XS.Iterator4</var>
 			<text>]</text>
 		</line>
-		<line linenr="095" indent="&#160;&#160;&#160;&#160;&#160;" interruptable="@">
+		<line linenr="109" indent="&#160;&#160;&#160;&#160;&#160;" interruptable="@">
 			<text>=</text>
+			<text> </text>
 			<text>wait</text>
 			<text> </text>
 			<var>1</var>
+			<text> </text>
 			<text>ms</text>
 		</line>
-		<line linenr="096" indent="&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="110" indent="&#160;&#160;&#160;&#160;&#160;">
 			<var>$Mammoth</var>
-			<text> </text>
 			<text>-&gt;</text>
 			<text> </text>
 			<text>destruct</text>
@@ -854,10 +1002,10 @@
 			<text>=</text>
 			<var>[TRUE]</var>
 		</line>
-		<line linenr="097" indent="&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="111" indent="&#160;&#160;&#160;&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="098" indent="&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="112" indent="&#160;&#160;&#160;&#160;&#160;">
 			<var>$KatanaMissionProgress</var>
 			<text> </text>
 			<text>=</text>
@@ -873,13 +1021,13 @@
 			<text>=</text>
 			<text>'SWM3_KatanaMissionProgress'</text>
 		</line>
-		<line linenr="099" indent="&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="113" indent="&#160;&#160;&#160;&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<text>!</text>
 			<var>$KatanaMissionProgress</var>
 		</line>
-		<line linenr="100" indent="&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="114" indent="&#160;&#160;&#160;&#160;&#160;">
 			<var>$ResearchStations</var>
 			<text> </text>
 			<text>=</text>
@@ -903,7 +1051,7 @@
 			<text>=</text>
 			<var>{Research Station}</var>
 		</line>
-		<line linenr="101" indent="&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="115" indent="&#160;&#160;&#160;&#160;&#160;">
 			<var>$s</var>
 			<text> </text>
 			<text>=</text>
@@ -916,7 +1064,7 @@
 			<text> </text>
 			<var>$ResearchStations</var>
 		</line>
-		<line linenr="102" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="116" indent="&#160;&#160;&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$s</var>
@@ -925,10 +1073,10 @@
 			<text> </text>
 			<var>1</var>
 		</line>
-		<line linenr="103" indent="&#160;&#160;&#160;">
+		<line linenr="117" indent="&#160;&#160;&#160;">
 			<comment>* First station tutorial message and bonus.</comment>
 		</line>
-		<line linenr="104" indent="&#160;&#160;">
+		<line linenr="118" indent="&#160;&#160;">
 			<text>set</text>
 			<text> </text>
 			<text>global</text>
@@ -944,7 +1092,7 @@
 			<text>=</text>
 			<var>[TRUE]</var>
 		</line>
-		<line linenr="105" indent="&#160;&#160;">
+		<line linenr="119" indent="&#160;&#160;">
 			<var>$t</var>
 			<text> </text>
 			<text>=</text>
@@ -962,7 +1110,7 @@
 			<text>=</text>
 			<var>3</var>
 		</line>
-		<line linenr="106" indent="&#160;&#160;" interruptable="@">
+		<line linenr="120" indent="&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[NULL]</var>
@@ -996,7 +1144,7 @@
 			<text>=</text>
 			<var>null</var>
 		</line>
-		<line linenr="107" indent="&#160;&#160;&#160;" interruptable="@">
+		<line linenr="121" indent="&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<text>wait</text>
@@ -1005,7 +1153,7 @@
 			<text> </text>
 			<text>ms</text>
 		</line>
-		<line linenr="108" indent="&#160;">
+		<line linenr="122" indent="&#160;&#160;&#160;">
 			<var>$t</var>
 			<text> </text>
 			<text>=</text>
@@ -1036,7 +1184,7 @@
 			<text> </text>
 			<var>null</var>
 		</line>
-		<line linenr="109" indent="&#160;" interruptable="@">
+		<line linenr="123" indent="&#160;&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[NULL]</var>
@@ -1070,7 +1218,7 @@
 			<text>=</text>
 			<var>null</var>
 		</line>
-		<line linenr="110" indent="&#160;" interruptable="@">
+		<line linenr="124" indent="&#160;&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<text>wait</text>
@@ -1079,14 +1227,14 @@
 			<text> </text>
 			<text>ms</text>
 		</line>
-		<line linenr="111" indent="">
+		<line linenr="125" indent="&#160;&#160;&#160;&#160;">
 			<var>$t</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<text>'Расшифруйте данные Дозора Смерти на исследовательской станции.'</text>
 		</line>
-		<line linenr="112" indent="" interruptable="@">
+		<line linenr="126" indent="&#160;&#160;&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[NULL]</var>
@@ -1108,7 +1256,7 @@
 			<text>=</text>
 			<var>$t</var>
 		</line>
-		<line linenr="113" indent="">
+		<line linenr="127" indent="&#160;&#160;&#160;&#160;">
 			<text>set</text>
 			<text> </text>
 			<text>global</text>
@@ -1124,24 +1272,1696 @@
 			<text>=</text>
 			<var>1</var>
 		</line>
-		<line linenr="114" indent="">
+		<line linenr="128" indent="&#160;&#160;&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="115" indent="">
+		<line linenr="129" indent="&#160;&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="116" indent="">
+		<line linenr="130" indent="&#160;&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="117" indent="" />
-		<line linenr="118" indent="">
+		<line linenr="131" indent="&#160;&#160;&#160;" />
+		<line linenr="132" indent="&#160;&#160;&#160;">
+			<comment>* 1.6 Warlord</comment>
+		</line>
+		<line linenr="133" indent="&#160;&#160;&#160;">
+			<text>if</text>
+			<text> </text>
+			<var>$gameVersion</var>
+			<text> </text>
+			<text>&lt;</text>
+			<text> </text>
+			<var>5</var>
+		</line>
+		<line linenr="134" indent="&#160;&#160;&#160;&#160;" interruptable="@">
+			<text>START</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.ImportShipSizes</call>
+			<text> </text>
+			<text>:</text>
+		</line>
+		<line linenr="135" indent="&#160;&#160;&#160;&#160;" interruptable="@">
+			<var>$outposts</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.GetOutposts</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>race</text>
+			<text>=</text>
+			<var>[Player]</var>
+		</line>
+		<line linenr="136" indent="&#160;&#160;&#160;">
+			<var>$XS.Iterator5</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$outposts</var>
+		</line>
+		<line linenr="137" indent="&#160;&#160;&#160;">
+			<text>while</text>
+			<text> </text>
+			<var>$XS.Iterator5</var>
+		</line>
+		<line linenr="138" indent="&#160;&#160;&#160;">
+			<text>dec</text>
+			<text> </text>
+			<var>$XS.Iterator5</var>
+		</line>
+		<line linenr="139" indent="&#160;&#160;&#160;">
+			<var>$outpost</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$outposts</var>
+			<text>[</text>
+			<var>$XS.Iterator5</var>
+			<text>]</text>
+		</line>
+		<line linenr="140" indent="&#160;&#160;&#160;&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<text>wait</text>
+			<text> </text>
+			<var>1</var>
+			<text> </text>
+			<text>ms</text>
+		</line>
+		<line linenr="141" indent="&#160;&#160;&#160;&#160;">
+			<var>$table</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$outpost</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>local</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'mayhem_perkTable'</text>
+		</line>
+		<line linenr="142" indent="&#160;&#160;&#160;&#160;&#160;">
+			<text>table</text>
+			<text> </text>
+			<text>set</text>
+			<text> </text>
+			<var>$table</var>
+			<text> </text>
+			<text>(</text>
+			<text> </text>
+			<text>'Повышение налога 1'</text>
+			<text> </text>
+			<text>)</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[FALSE]</var>
+		</line>
+		<line linenr="143" indent="&#160;&#160;&#160;&#160;&#160;">
+			<text>table</text>
+			<text> </text>
+			<text>set</text>
+			<text> </text>
+			<var>$table</var>
+			<text> </text>
+			<text>(</text>
+			<text> </text>
+			<text>'Повышение налога 2'</text>
+			<text> </text>
+			<text>)</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[FALSE]</var>
+		</line>
+		<line linenr="144" indent="&#160;&#160;&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="145" indent="&#160;&#160;&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.Perk.SetInfo</call>
+			<text> </text>
+			<text>:</text>
+		</line>
+		<line linenr="146" indent="&#160;&#160;&#160;&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.Init.Templates</call>
+			<text> </text>
+			<text>:</text>
+		</line>
+		<line linenr="147" indent="&#160;&#160;&#160;&#160;">
+			<var>$MandoMammoths</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>ship</text>
+			<text> </text>
+			<text>array</text>
+			<text>:</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>race</text>
+			<text> </text>
+			<var>[Mandalorian]</var>
+			<text> </text>
+			<text>class</text>
+			<text>/</text>
+			<text>type</text>
+			<text>=</text>
+			<var>{Neutral Race Mammoth}</var>
+		</line>
+		<line linenr="148" indent="&#160;&#160;&#160;&#160;&#160;">
+			<var>$XS.Iterator6</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$MandoMammoths</var>
+		</line>
+		<line linenr="149" indent="&#160;&#160;&#160;&#160;&#160;">
+			<text>while</text>
+			<text> </text>
+			<var>$XS.Iterator6</var>
+		</line>
+		<line linenr="150" indent="&#160;&#160;&#160;&#160;">
+			<text>dec</text>
+			<text> </text>
+			<var>$XS.Iterator6</var>
+		</line>
+		<line linenr="151" indent="&#160;&#160;&#160;&#160;">
+			<var>$Mammoth</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$MandoMammoths</var>
+			<text>[</text>
+			<var>$XS.Iterator6</var>
+			<text>]</text>
+		</line>
+		<line linenr="152" indent="&#160;&#160;&#160;&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<text>wait</text>
+			<text> </text>
+			<var>1</var>
+			<text> </text>
+			<text>ms</text>
+		</line>
+		<line linenr="153" indent="&#160;&#160;&#160;&#160;&#160;">
+			<var>$Mammoth</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>destruct</text>
+			<text>:</text>
+			<text> </text>
+			<text>show</text>
+			<text> </text>
+			<text>no</text>
+			<text> </text>
+			<text>explosion</text>
+			<text>=</text>
+			<var>[TRUE]</var>
+		</line>
+		<line linenr="154" indent="&#160;&#160;&#160;&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="155" indent="&#160;&#160;&#160;&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.Diplomacy.Initialize</call>
+			<text> </text>
+			<text>:</text>
+		</line>
+		<line linenr="156" indent="&#160;&#160;&#160;&#160;">
+			<var>$galaxyProgress</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'mayhem_galaxy.progress'</text>
+		</line>
+		<line linenr="157" indent="&#160;&#160;&#160;&#160;">
+			<text>if</text>
+			<text> </text>
+			<var>$galaxyProgress</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>1</var>
+		</line>
+		<line linenr="158" indent="&#160;&#160;&#160;&#160;&#160;" interruptable="@">
+			<var>$RebelOutposts</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.GetOutposts</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>race</text>
+			<text>=</text>
+			<var>[Rebel Alliance (Races)]</var>
+		</line>
+		<line linenr="159" indent="&#160;&#160;&#160;&#160;&#160;">
+			<var>$XS.Iterator7</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$RebelOutposts</var>
+		</line>
+		<line linenr="160" indent="&#160;&#160;&#160;&#160;">
+			<text>while</text>
+			<text> </text>
+			<var>$XS.Iterator7</var>
+		</line>
+		<line linenr="161" indent="&#160;&#160;&#160;&#160;">
+			<text>dec</text>
+			<text> </text>
+			<var>$XS.Iterator7</var>
+		</line>
+		<line linenr="162" indent="&#160;&#160;&#160;&#160;">
+			<var>$outpostType</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$RebelOutposts</var>
+			<text>[</text>
+			<var>$XS.Iterator7</var>
+			<text>]</text>
+		</line>
+		<line linenr="163" indent="&#160;&#160;&#160;&#160;&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<text>wait</text>
+			<text> </text>
+			<var>1</var>
+			<text> </text>
+			<text>ms</text>
+		</line>
+		<line linenr="164" indent="&#160;&#160;&#160;&#160;&#160;" interruptable="@">
+			<text>START</text>
+			<text> </text>
+			<var>$outpostType</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>SWM3.SetOutpostSpec</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>level</text>
+			<text>=</text>
+			<var>55</var>
+		</line>
+		<line linenr="165" indent="&#160;&#160;&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="166" indent="&#160;&#160;&#160;&#160;">
+			<text>else</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$galaxyProgress</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>2</var>
+		</line>
+		<line linenr="167" indent="&#160;&#160;&#160;&#160;" interruptable="@">
+			<var>$RepublicOutposts</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.GetOutposts</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>race</text>
+			<text>=</text>
+			<var>[Republic]</var>
+		</line>
+		<line linenr="168" indent="&#160;&#160;&#160;&#160;&#160;">
+			<var>$XS.Iterator8</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$RepublicOutposts</var>
+		</line>
+		<line linenr="169" indent="&#160;&#160;&#160;&#160;&#160;">
+			<text>while</text>
+			<text> </text>
+			<var>$XS.Iterator8</var>
+		</line>
+		<line linenr="170" indent="&#160;&#160;&#160;&#160;">
+			<text>dec</text>
+			<text> </text>
+			<var>$XS.Iterator8</var>
+		</line>
+		<line linenr="171" indent="&#160;&#160;&#160;&#160;">
+			<var>$outpostType</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$RepublicOutposts</var>
+			<text>[</text>
+			<var>$XS.Iterator8</var>
+			<text>]</text>
+		</line>
+		<line linenr="172" indent="&#160;&#160;&#160;&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<text>wait</text>
+			<text> </text>
+			<var>1</var>
+			<text> </text>
+			<text>ms</text>
+		</line>
+		<line linenr="173" indent="&#160;&#160;&#160;&#160;&#160;" interruptable="@">
+			<text>START</text>
+			<text> </text>
+			<var>$outpostType</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>SWM3.SetOutpostSpec</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>level</text>
+			<text>=</text>
+			<var>70</var>
+		</line>
+		<line linenr="174" indent="&#160;&#160;&#160;&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="175" indent="&#160;&#160;&#160;&#160;" interruptable="@">
+			<var>$RebelOutposts</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.GetOutposts</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>race</text>
+			<text>=</text>
+			<var>[Rebel Alliance (Races)]</var>
+		</line>
+		<line linenr="176" indent="&#160;&#160;&#160;">
+			<var>$XS.Iterator9</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$RebelOutposts</var>
+		</line>
+		<line linenr="177" indent="&#160;&#160;&#160;&#160;">
+			<text>while</text>
+			<text> </text>
+			<var>$XS.Iterator9</var>
+		</line>
+		<line linenr="178" indent="&#160;&#160;&#160;&#160;">
+			<text>dec</text>
+			<text> </text>
+			<var>$XS.Iterator9</var>
+		</line>
+		<line linenr="179" indent="&#160;&#160;&#160;&#160;&#160;">
+			<var>$outpostType</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$RebelOutposts</var>
+			<text>[</text>
+			<var>$XS.Iterator9</var>
+			<text>]</text>
+		</line>
+		<line linenr="180" indent="&#160;&#160;&#160;&#160;&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<text>wait</text>
+			<text> </text>
+			<var>1</var>
+			<text> </text>
+			<text>ms</text>
+		</line>
+		<line linenr="181" indent="&#160;&#160;&#160;&#160;" interruptable="@">
+			<text>START</text>
+			<text> </text>
+			<var>$outpostType</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>SWM3.SetOutpostSpec</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>level</text>
+			<text>=</text>
+			<var>65</var>
+		</line>
+		<line linenr="182" indent="&#160;&#160;&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="183" indent="&#160;&#160;&#160;&#160;" interruptable="@">
+			<var>$MandalorianOutposts</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.GetOutposts</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>race</text>
+			<text>=</text>
+			<var>[Mandalorian]</var>
+		</line>
+		<line linenr="184" indent="&#160;&#160;&#160;&#160;&#160;">
+			<var>$XS.Iterator10</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$MandalorianOutposts</var>
+		</line>
+		<line linenr="185" indent="&#160;&#160;&#160;&#160;&#160;">
+			<text>while</text>
+			<text> </text>
+			<var>$XS.Iterator10</var>
+		</line>
+		<line linenr="186" indent="&#160;&#160;&#160;&#160;">
+			<text>dec</text>
+			<text> </text>
+			<var>$XS.Iterator10</var>
+		</line>
+		<line linenr="187" indent="&#160;&#160;&#160;&#160;">
+			<var>$outpostType</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$MandalorianOutposts</var>
+			<text>[</text>
+			<var>$XS.Iterator10</var>
+			<text>]</text>
+		</line>
+		<line linenr="188" indent="&#160;&#160;&#160;&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<text>wait</text>
+			<text> </text>
+			<var>1</var>
+			<text> </text>
+			<text>ms</text>
+		</line>
+		<line linenr="189" indent="&#160;&#160;&#160;&#160;&#160;" interruptable="@">
+			<text>START</text>
+			<text> </text>
+			<var>$outpostType</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>SWM3.SetOutpostSpec</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>level</text>
+			<text>=</text>
+			<var>65</var>
+		</line>
+		<line linenr="190" indent="&#160;&#160;&#160;&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="191" indent="&#160;&#160;&#160;&#160;" interruptable="@">
+			<var>$EmpireOutposts</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.GetOutposts</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>race</text>
+			<text>=</text>
+			<var>[Empire]</var>
+		</line>
+		<line linenr="192" indent="&#160;&#160;&#160;&#160;">
+			<var>$XS.Iterator11</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$EmpireOutposts</var>
+		</line>
+		<line linenr="193" indent="&#160;&#160;&#160;&#160;">
+			<text>while</text>
+			<text> </text>
+			<var>$XS.Iterator11</var>
+		</line>
+		<line linenr="194" indent="&#160;&#160;&#160;&#160;&#160;">
+			<text>dec</text>
+			<text> </text>
+			<var>$XS.Iterator11</var>
+		</line>
+		<line linenr="195" indent="&#160;&#160;&#160;&#160;&#160;">
+			<var>$outpostType</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$EmpireOutposts</var>
+			<text>[</text>
+			<var>$XS.Iterator11</var>
+			<text>]</text>
+		</line>
+		<line linenr="196" indent="&#160;&#160;&#160;&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<text>wait</text>
+			<text> </text>
+			<var>1</var>
+			<text> </text>
+			<text>ms</text>
+		</line>
+		<line linenr="197" indent="&#160;&#160;&#160;" interruptable="@">
+			<text>START</text>
+			<text> </text>
+			<var>$outpostType</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>SWM3.SetOutpostSpec</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>level</text>
+			<text>=</text>
+			<var>55</var>
+		</line>
+		<line linenr="198" indent="&#160;&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="199" indent="&#160;&#160;&#160;" interruptable="@">
+			<var>$CISOutposts</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.GetOutposts</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>race</text>
+			<text>=</text>
+			<var>[CIS]</var>
+		</line>
+		<line linenr="200" indent="&#160;&#160;&#160;">
+			<var>$XS.Iterator12</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$CISOutposts</var>
+		</line>
+		<line linenr="201" indent="&#160;&#160;&#160;">
+			<text>while</text>
+			<text> </text>
+			<var>$XS.Iterator12</var>
+		</line>
+		<line linenr="202" indent="&#160;&#160;&#160;">
+			<text>dec</text>
+			<text> </text>
+			<var>$XS.Iterator12</var>
+		</line>
+		<line linenr="203" indent="&#160;&#160;&#160;">
+			<var>$outpostType</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$CISOutposts</var>
+			<text>[</text>
+			<var>$XS.Iterator12</var>
+			<text>]</text>
+		</line>
+		<line linenr="204" indent="&#160;&#160;&#160;&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<text>wait</text>
+			<text> </text>
+			<var>1</var>
+			<text> </text>
+			<text>ms</text>
+		</line>
+		<line linenr="205" indent="&#160;&#160;&#160;&#160;" interruptable="@">
+			<text>START</text>
+			<text> </text>
+			<var>$outpostType</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>SWM3.SetOutpostSpec</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>level</text>
+			<text>=</text>
+			<var>55</var>
+		</line>
+		<line linenr="206" indent="&#160;&#160;&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="207" indent="&#160;&#160;&#160;&#160;&#160;" interruptable="@">
+			<var>$NROutposts</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.GetOutposts</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>race</text>
+			<text>=</text>
+			<var>[New Republic (Races)]</var>
+		</line>
+		<line linenr="208" indent="&#160;&#160;&#160;&#160;&#160;">
+			<var>$XS.Iterator13</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$NROutposts</var>
+		</line>
+		<line linenr="209" indent="&#160;&#160;&#160;&#160;&#160;&#160;">
+			<text>while</text>
+			<text> </text>
+			<var>$XS.Iterator13</var>
+		</line>
+		<line linenr="210" indent="&#160;&#160;&#160;&#160;&#160;">
+			<text>dec</text>
+			<text> </text>
+			<var>$XS.Iterator13</var>
+		</line>
+		<line linenr="211" indent="&#160;&#160;&#160;&#160;&#160;&#160;">
+			<var>$outpostType</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$NROutposts</var>
+			<text>[</text>
+			<var>$XS.Iterator13</var>
+			<text>]</text>
+		</line>
+		<line linenr="212" indent="&#160;&#160;&#160;&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<text>wait</text>
+			<text> </text>
+			<var>1</var>
+			<text> </text>
+			<text>ms</text>
+		</line>
+		<line linenr="213" indent="&#160;&#160;&#160;" interruptable="@">
+			<text>START</text>
+			<text> </text>
+			<var>$outpostType</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>SWM3.SetOutpostSpec</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>level</text>
+			<text>=</text>
+			<var>55</var>
+		</line>
+		<line linenr="214" indent="&#160;&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="215" indent="&#160;&#160;&#160;">
+			<text>else</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$galaxyProgress</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>3</var>
+		</line>
+		<line linenr="216" indent="&#160;&#160;&#160;" interruptable="@">
+			<var>$RebelOutposts</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.GetOutposts</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>race</text>
+			<text>=</text>
+			<var>[Rebel Alliance (Races)]</var>
+		</line>
+		<line linenr="217" indent="&#160;&#160;&#160;">
+			<var>$XS.Iterator14</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$RebelOutposts</var>
+		</line>
+		<line linenr="218" indent="&#160;&#160;&#160;&#160;">
+			<text>while</text>
+			<text> </text>
+			<var>$XS.Iterator14</var>
+		</line>
+		<line linenr="219" indent="&#160;&#160;&#160;&#160;">
+			<text>dec</text>
+			<text> </text>
+			<var>$XS.Iterator14</var>
+		</line>
+		<line linenr="220" indent="&#160;&#160;&#160;">
+			<var>$outpostType</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$RebelOutposts</var>
+			<text>[</text>
+			<var>$XS.Iterator14</var>
+			<text>]</text>
+		</line>
+		<line linenr="221" indent="&#160;&#160;&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<text>wait</text>
+			<text> </text>
+			<var>1</var>
+			<text> </text>
+			<text>ms</text>
+		</line>
+		<line linenr="222" indent="&#160;&#160;&#160;" interruptable="@">
+			<text>START</text>
+			<text> </text>
+			<var>$outpostType</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>SWM3.SetOutpostSpec</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>level</text>
+			<text>=</text>
+			<var>70</var>
+		</line>
+		<line linenr="223" indent="&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="224" indent="&#160;&#160;" interruptable="@">
+			<var>$EmpireOutposts</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.GetOutposts</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>race</text>
+			<text>=</text>
+			<var>[Empire]</var>
+		</line>
+		<line linenr="225" indent="&#160;&#160;">
+			<var>$XS.Iterator15</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$EmpireOutposts</var>
+		</line>
+		<line linenr="226" indent="&#160;&#160;">
+			<text>while</text>
+			<text> </text>
+			<var>$XS.Iterator15</var>
+		</line>
+		<line linenr="227" indent="&#160;&#160;&#160;">
+			<text>dec</text>
+			<text> </text>
+			<var>$XS.Iterator15</var>
+		</line>
+		<line linenr="228" indent="&#160;&#160;&#160;">
+			<var>$outpostType</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$EmpireOutposts</var>
+			<text>[</text>
+			<var>$XS.Iterator15</var>
+			<text>]</text>
+		</line>
+		<line linenr="229" indent="&#160;&#160;&#160;&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<text>wait</text>
+			<text> </text>
+			<var>1</var>
+			<text> </text>
+			<text>ms</text>
+		</line>
+		<line linenr="230" indent="&#160;&#160;&#160;&#160;" interruptable="@">
+			<text>START</text>
+			<text> </text>
+			<var>$outpostType</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>SWM3.SetOutpostSpec</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>level</text>
+			<text>=</text>
+			<var>70</var>
+		</line>
+		<line linenr="231" indent="&#160;&#160;&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="232" indent="&#160;&#160;&#160;" interruptable="@">
+			<var>$CISOutposts</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.GetOutposts</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>race</text>
+			<text>=</text>
+			<var>[CIS]</var>
+		</line>
+		<line linenr="233" indent="&#160;&#160;&#160;">
+			<var>$XS.Iterator16</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$CISOutposts</var>
+		</line>
+		<line linenr="234" indent="&#160;&#160;">
+			<text>while</text>
+			<text> </text>
+			<var>$XS.Iterator16</var>
+		</line>
+		<line linenr="235" indent="&#160;&#160;">
+			<text>dec</text>
+			<text> </text>
+			<var>$XS.Iterator16</var>
+		</line>
+		<line linenr="236" indent="&#160;&#160;">
+			<var>$outpostType</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$CISOutposts</var>
+			<text>[</text>
+			<var>$XS.Iterator16</var>
+			<text>]</text>
+		</line>
+		<line linenr="237" indent="&#160;&#160;&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<text>wait</text>
+			<text> </text>
+			<var>1</var>
+			<text> </text>
+			<text>ms</text>
+		</line>
+		<line linenr="238" indent="&#160;" interruptable="@">
+			<text>START</text>
+			<text> </text>
+			<var>$outpostType</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>SWM3.SetOutpostSpec</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>level</text>
+			<text>=</text>
+			<var>70</var>
+		</line>
+		<line linenr="239" indent="&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="240" indent="&#160;" interruptable="@">
+			<var>$NROutposts</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.GetOutposts</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>race</text>
+			<text>=</text>
+			<var>[New Republic (Races)]</var>
+		</line>
+		<line linenr="241" indent="">
+			<var>$XS.Iterator17</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$NROutposts</var>
+		</line>
+		<line linenr="242" indent="">
+			<text>while</text>
+			<text> </text>
+			<var>$XS.Iterator17</var>
+		</line>
+		<line linenr="243" indent="">
+			<text>dec</text>
+			<text> </text>
+			<var>$XS.Iterator17</var>
+		</line>
+		<line linenr="244" indent="">
+			<var>$outpostType</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$NROutposts</var>
+			<text>[</text>
+			<var>$XS.Iterator17</var>
+			<text>]</text>
+		</line>
+		<line linenr="245" indent="" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<text>wait</text>
+			<text> </text>
+			<var>1</var>
+			<text> </text>
+			<text>ms</text>
+		</line>
+		<line linenr="246" indent="" interruptable="@">
+			<text>START</text>
+			<text> </text>
+			<var>$outpostType</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>SWM3.SetOutpostSpec</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>level</text>
+			<text>=</text>
+			<var>75</var>
+		</line>
+		<line linenr="247" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="248" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="249" indent="">
+			<var>$maxSpecializationLevel</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'mayhem_maxSpecializationLevel'</text>
+		</line>
+		<line linenr="250" indent="">
+			<var>$maxSpecializationLevel</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$maxSpecializationLevel</var>
+			<text> </text>
+			<text>-</text>
+			<text> </text>
+			<var>25</var>
+		</line>
+		<line linenr="251" indent="" interruptable="@">
+			<var>$PlayerOutposts</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.GetOutposts</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>race</text>
+			<text>=</text>
+			<var>[Player]</var>
+		</line>
+		<line linenr="252" indent="">
+			<var>$PlayerOutpostNb</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PlayerOutposts</var>
+		</line>
+		<line linenr="253" indent="">
+			<var>$MandoOutposts</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<text>alloc</text>
+			<text>:</text>
+			<text> </text>
+			<text>size</text>
+			<text>=</text>
+			<var>0</var>
+		</line>
+		<line linenr="254" indent="">
+			<var>$XS.Iterator18</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$PlayerOutposts</var>
+		</line>
+		<line linenr="255" indent="">
+			<text>while</text>
+			<text> </text>
+			<var>$XS.Iterator18</var>
+		</line>
+		<line linenr="256" indent="">
+			<text>dec</text>
+			<text> </text>
+			<var>$XS.Iterator18</var>
+		</line>
+		<line linenr="257" indent="">
+			<var>$outpostType</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$PlayerOutposts</var>
+			<text>[</text>
+			<var>$XS.Iterator18</var>
+			<text>]</text>
+		</line>
+		<line linenr="258" indent="" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<text>wait</text>
+			<text> </text>
+			<var>1</var>
+			<text> </text>
+			<text>ms</text>
+		</line>
+		<line linenr="259" indent="">
+			<var>$spec</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$outpostType</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>local</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'mayhem_specializationShip'</text>
+		</line>
+		<line linenr="260" indent="">
+			<text>if</text>
+			<text> </text>
+			<var>$spec</var>
+			<text> </text>
+			<text>&gt;</text>
+			<text> </text>
+			<var>$maxSpecializationLevel</var>
+		</line>
+		<line linenr="261" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$outpostType</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$MandoOutposts</var>
+		</line>
+		<line linenr="262" indent="">
+			<text>skip</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$currentMandoSpec</var>
+		</line>
+		<line linenr="263" indent="">
+			<var>$currentMandoSpec</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$spec</var>
+		</line>
+		<line linenr="264" indent="">
+			<text>do</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$spec</var>
+			<text> </text>
+			<text>&gt;</text>
+			<text> </text>
+			<var>$currentMandoSpec</var>
+		</line>
+		<line linenr="265" indent="">
+			<var>$currentMandoSpec</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$spec</var>
+		</line>
+		<line linenr="266" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="267" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="268" indent="">
+			<var>$MandoBonusSpec</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$currentMandoSpec</var>
+			<text> </text>
+			<text>-</text>
+			<text> </text>
+			<var>$maxSpecializationLevel</var>
+		</line>
+		<line linenr="269" indent="">
+			<var>$MandoBonusSpec</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$MandoBonusSpec</var>
+			<text> </text>
+			<text>/</text>
+			<text> </text>
+			<var>2</var>
+		</line>
+		<line linenr="270" indent="">
+			<var>$spec</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$maxSpecializationLevel</var>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<var>$MandoBonusSpec</var>
+		</line>
+		<line linenr="271" indent="">
+			<var>$XS.Iterator19</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$MandoOutposts</var>
+		</line>
+		<line linenr="272" indent="">
+			<text>while</text>
+			<text> </text>
+			<var>$XS.Iterator19</var>
+		</line>
+		<line linenr="273" indent="">
+			<text>dec</text>
+			<text> </text>
+			<var>$XS.Iterator19</var>
+		</line>
+		<line linenr="274" indent="">
+			<var>$outpostType</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$MandoOutposts</var>
+			<text>[</text>
+			<var>$XS.Iterator19</var>
+			<text>]</text>
+		</line>
+		<line linenr="275" indent="" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<text>wait</text>
+			<text> </text>
+			<var>1</var>
+			<text> </text>
+			<text>ms</text>
+		</line>
+		<line linenr="276" indent="" interruptable="@">
+			<text>START</text>
+			<text> </text>
+			<var>$outpostType</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>SWM3.SetOutpostSpec</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>level</text>
+			<text>=</text>
+			<var>$spec</var>
+		</line>
+		<line linenr="277" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="278" indent="" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.Init.Templates</call>
+			<text> </text>
+			<text>:</text>
+		</line>
+		<line linenr="279" indent="">
+			<var>$versionText</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'updated for SWM3 1.6 Warlord.'</text>
+		</line>
+		<line linenr="280" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="281" indent="" />
+		<line linenr="282" indent="">
+			<comment>* 1.6.1</comment>
+		</line>
+		<line linenr="283" indent="">
+			<text>if</text>
+			<text> </text>
+			<var>$gameVersion</var>
+			<text> </text>
+			<text>&lt;</text>
+			<text> </text>
+			<var>6</var>
+		</line>
+		<line linenr="284" indent="">
+			<var>$companyStations</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>station</text>
+			<text> </text>
+			<text>array</text>
+			<text>:</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>race</text>
+			<text> </text>
+			<var>[Private Corp.]</var>
+			<text> </text>
+			<text>class</text>
+			<text>/</text>
+			<text>type</text>
+			<text>=</text>
+			<var>$stationType</var>
+		</line>
+		<line linenr="285" indent="">
+			<var>$XS.Iterator20</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$companyStations</var>
+		</line>
+		<line linenr="286" indent="">
+			<text>while</text>
+			<text> </text>
+			<var>$XS.Iterator20</var>
+		</line>
+		<line linenr="287" indent="">
+			<text>dec</text>
+			<text> </text>
+			<var>$XS.Iterator20</var>
+		</line>
+		<line linenr="288" indent="">
+			<var>$station</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$companyStations</var>
+			<text>[</text>
+			<var>$XS.Iterator20</var>
+			<text>]</text>
+		</line>
+		<line linenr="289" indent="" interruptable="@">
+			<text>=</text>
+			<text>wait</text>
+			<text> </text>
+			<var>1</var>
+			<text>ms</text>
+		</line>
+		<line linenr="290" indent="">
+			<var>$station</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>add</text>
+			<text> </text>
+			<text>product</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>factory</text>
+			<text> </text>
+			<text>or</text>
+			<text> </text>
+			<text>dock</text>
+			<text>:</text>
+			<text> </text>
+			<var>{Explorer Command Software}</var>
+		</line>
+		<line linenr="291" indent="">
+			<text>=</text>
+			<text> </text>
+			<var>$station</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>add</text>
+			<text> </text>
+			<var>100000</var>
+			<text> </text>
+			<text>units</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<var>{Explorer Command Software}</var>
+		</line>
+		<line linenr="292" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="293" indent="">
+			<var>$versionText</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'updated for SWM3 1.6.1 Warlord.'</text>
+		</line>
+		<line linenr="294" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="295" indent="" />
+		<line linenr="296" indent="">
 			<text>do</text>
 			<text> </text>
 			<text>if</text>
 			<text> </text>
 			<var>$versionText</var>
 		</line>
-		<line linenr="119" indent="">
+		<line linenr="297" indent="">
 			<text>write</text>
 			<text> </text>
 			<text>to</text>
@@ -1152,12 +2972,12 @@
 			<text> </text>
 			<var>$versionText</var>
 		</line>
-		<line linenr="120" indent="">
+		<line linenr="298" indent="">
 			<text>end</text>
 		</line>
-		<line linenr="121" indent="" />
-		<line linenr="122" indent="" />
-		<line linenr="123" indent="">
+		<line linenr="299" indent="" />
+		<line linenr="300" indent="" />
+		<line linenr="301" indent="">
 			<text>endsub</text>
 		</line>
 	</sourcetext>
@@ -1168,11 +2988,13 @@
 			<sval type="string" val="" />
 			<sval type="int" val="1" />
 			<sval type="int" val="0" />
-			<sval type="array" size="20">
+			<sval type="array" size="54">
 				<sval type="string" val="currentVersion" />
 				<sval type="string" val="SatelliteWhitelist" />
 				<sval type="string" val="satwhitelists" />
 				<sval type="string" val="satwhitelist" />
+				<sval type="string" val="DarkForceMission" />
+				<sval type="string" val="t" />
 				<sval type="string" val="gameVersion" />
 				<sval type="string" val="versionText" />
 				<sval type="string" val="galaxyProgress" />
@@ -1188,15 +3010,47 @@
 				<sval type="string" val="KatanaMissionProgress" />
 				<sval type="string" val="ResearchStations" />
 				<sval type="string" val="s" />
-				<sval type="string" val="t" />
+				<sval type="string" val="outposts" />
+				<sval type="string" val="outpost" />
+				<sval type="string" val="XS.Iterator5" />
+				<sval type="string" val="table" />
+				<sval type="string" val="XS.Iterator6" />
+				<sval type="string" val="RebelOutposts" />
+				<sval type="string" val="XS.Iterator7" />
+				<sval type="string" val="XS.Iterator8" />
+				<sval type="string" val="XS.Iterator9" />
+				<sval type="string" val="XS.Iterator10" />
+				<sval type="string" val="EmpireOutposts" />
+				<sval type="string" val="XS.Iterator11" />
+				<sval type="string" val="CISOutposts" />
+				<sval type="string" val="XS.Iterator12" />
+				<sval type="string" val="NROutposts" />
+				<sval type="string" val="XS.Iterator13" />
+				<sval type="string" val="XS.Iterator14" />
+				<sval type="string" val="XS.Iterator15" />
+				<sval type="string" val="XS.Iterator16" />
+				<sval type="string" val="XS.Iterator17" />
+				<sval type="string" val="maxSpecializationLevel" />
+				<sval type="string" val="PlayerOutposts" />
+				<sval type="string" val="PlayerOutpostNb" />
+				<sval type="string" val="MandoOutposts" />
+				<sval type="string" val="XS.Iterator18" />
+				<sval type="string" val="spec" />
+				<sval type="string" val="currentMandoSpec" />
+				<sval type="string" val="MandoBonusSpec" />
+				<sval type="string" val="XS.Iterator19" />
+				<sval type="string" val="companyStations" />
+				<sval type="string" val="stationType" />
+				<sval type="string" val="station" />
+				<sval type="string" val="XS.Iterator20" />
 			</sval>
-			<sval type="array" size="93">
+			<sval type="array" size="260">
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
 					<sval type="int" val="0" />
 					<sval type="int" val="1" />
 					<sval type="int" val="4" />
-					<sval type="int" val="4" />
+					<sval type="int" val="6" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
@@ -1213,6 +3067,14 @@
 					<sval type="int" val="12" />
 					<sval type="int" val="0" />
 				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="102" />
+					<sval type="string" val="SWM3.Setup.Commands" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="0" />
+				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="158" />
 					<sval type="int" val="5" />
@@ -1221,7 +3083,7 @@
 				</sval>
 				<sval type="array" size="10">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610610429" />
+					<sval type="int" val="-1610610173" />
 					<sval type="int" val="2" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="1" />
@@ -1255,9 +3117,74 @@
 					<sval type="int" val="131074" />
 					<sval type="int" val="2" />
 				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="SWM3_firstResearchStationBuilt" />
+					<sval type="int" val="-1610608125" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="mayhem_prologue" />
+					<sval type="int" val="-536866300" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="SWM3_KatanaMissionProgress" />
+					<sval type="int" val="-536866300" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.MissionEntry.Exists" />
+					<sval type="int" val="4" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Тёмная сила" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-536866300" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="5" />
+					<sval type="int" val="1" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Расшифруйте данные Дозора Смерти на исследовательской станции." />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="10">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.MissionEntry.Add" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="2" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Тёмная сила" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="157" />
+					<sval type="int" val="5" />
+					<sval type="string" val="SWM3_KatanaMissionProgress" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="1167" />
-					<sval type="int" val="11" />
+					<sval type="int" val="20" />
 				</sval>
 				<sval type="array" size="3">
 					<sval type="int" val="103" />
@@ -1272,14 +3199,14 @@
 					<sval type="int" val="158" />
 					<sval type="int" val="5" />
 					<sval type="string" val="SWmayhemVersion" />
-					<sval type="int" val="4" />
+					<sval type="int" val="6" />
 				</sval>
 				<sval type="array" size="10">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610608125" />
+					<sval type="int" val="-1610605821" />
 					<sval type="int" val="2" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="4" />
+					<sval type="int" val="6" />
 					<sval type="int" val="15" />
 					<sval type="int" val="65556" />
 					<sval type="int" val="2" />
@@ -1288,10 +3215,10 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="5" />
+					<sval type="int" val="7" />
 					<sval type="int" val="1" />
 					<sval type="int" val="5" />
-					<sval type="string" val="Star Wars Mayhem 3 установлен." />
+					<sval type="string" val="Star Wars Mayhem 3 has been installed." />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
@@ -1312,14 +3239,14 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="92" />
+					<sval type="int" val="259" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610589179" />
+					<sval type="int" val="-1610546427" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="4" />
+					<sval type="int" val="6" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="0" />
 					<sval type="int" val="15" />
@@ -1353,10 +3280,10 @@
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610604541" />
+					<sval type="int" val="-1610602237" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="4" />
+					<sval type="int" val="6" />
 					<sval type="int" val="4" />
 					<sval type="int" val="2" />
 					<sval type="int" val="15" />
@@ -1378,14 +3305,14 @@
 					<sval type="int" val="158" />
 					<sval type="int" val="5" />
 					<sval type="string" val="mayhem_galaxy.progress" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610605309" />
+					<sval type="int" val="-1610603005" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 					<sval type="int" val="4" />
 					<sval type="int" val="1" />
 					<sval type="int" val="15" />
@@ -1404,7 +3331,7 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="5" />
+					<sval type="int" val="7" />
 					<sval type="int" val="1" />
 					<sval type="int" val="5" />
 					<sval type="string" val="SWM3 1.2: новый сюжет Гиперсеть считается завершенным, поскольку вы уже построили свой бесплатный Форпост." />
@@ -1413,14 +3340,14 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="32" />
+					<sval type="int" val="41" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610604539" />
+					<sval type="int" val="-1610602235" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 					<sval type="int" val="4" />
 					<sval type="int" val="1" />
 					<sval type="int" val="15" />
@@ -1434,7 +3361,7 @@
 					<sval type="int" val="158" />
 					<sval type="int" val="5" />
 					<sval type="string" val="mayhem_ascensionComplete" />
-					<sval type="int" val="-1610604536" />
+					<sval type="int" val="-1610602232" />
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="102" />
@@ -1446,10 +3373,10 @@
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610596349" />
+					<sval type="int" val="-1610594045" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="4" />
+					<sval type="int" val="6" />
 					<sval type="int" val="4" />
 					<sval type="int" val="3" />
 					<sval type="int" val="15" />
@@ -1463,14 +3390,14 @@
 					<sval type="int" val="158" />
 					<sval type="int" val="5" />
 					<sval type="string" val="mayhem_galaxy.progress" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610601469" />
+					<sval type="int" val="-1610599165" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 					<sval type="int" val="4" />
 					<sval type="int" val="2" />
 					<sval type="int" val="15" />
@@ -1483,7 +3410,7 @@
 				<sval type="array" size="8">
 					<sval type="int" val="102" />
 					<sval type="string" val="Mayhem.GetOutposts" />
-					<sval type="int" val="7" />
+					<sval type="int" val="9" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="12" />
 					<sval type="int" val="1" />
@@ -1492,30 +3419,30 @@
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="131" />
-					<sval type="int" val="9" />
+					<sval type="int" val="11" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="7" />
+					<sval type="int" val="9" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610601719" />
+					<sval type="int" val="-1610599415" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="9" />
+					<sval type="int" val="11" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="143" />
-					<sval type="int" val="9" />
+					<sval type="int" val="11" />
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="129" />
-					<sval type="int" val="8" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="7" />
+					<sval type="int" val="10" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="9" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="11" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="105" />
@@ -1528,25 +3455,25 @@
 					<sval type="string" val="SWM3.SetOutpostSpec" />
 					<sval type="int" val="-2147483646" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="8" />
+					<sval type="int" val="10" />
 					<sval type="int" val="1" />
 					<sval type="int" val="4" />
 					<sval type="int" val="80" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="37" />
+					<sval type="int" val="46" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="61" />
+					<sval type="int" val="70" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610597115" />
+					<sval type="int" val="-1610594811" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 					<sval type="int" val="4" />
 					<sval type="int" val="3" />
 					<sval type="int" val="15" />
@@ -1559,7 +3486,7 @@
 				<sval type="array" size="8">
 					<sval type="int" val="102" />
 					<sval type="string" val="Mayhem.GetOutposts" />
-					<sval type="int" val="7" />
+					<sval type="int" val="9" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="12" />
 					<sval type="int" val="1" />
@@ -1568,30 +3495,30 @@
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="131" />
-					<sval type="int" val="10" />
+					<sval type="int" val="12" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="7" />
+					<sval type="int" val="9" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610599159" />
+					<sval type="int" val="-1610596855" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="10" />
+					<sval type="int" val="12" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="143" />
-					<sval type="int" val="10" />
+					<sval type="int" val="12" />
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="129" />
-					<sval type="int" val="8" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="7" />
-					<sval type="int" val="131074" />
 					<sval type="int" val="10" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="9" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="12" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="105" />
@@ -1604,19 +3531,19 @@
 					<sval type="string" val="SWM3.SetOutpostSpec" />
 					<sval type="int" val="-2147483646" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="8" />
+					<sval type="int" val="10" />
 					<sval type="int" val="1" />
 					<sval type="int" val="4" />
 					<sval type="int" val="50" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="47" />
+					<sval type="int" val="56" />
 				</sval>
 				<sval type="array" size="8">
 					<sval type="int" val="102" />
 					<sval type="string" val="Mayhem.GetOutposts" />
-					<sval type="int" val="11" />
+					<sval type="int" val="13" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="12" />
 					<sval type="int" val="1" />
@@ -1625,30 +3552,30 @@
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="131" />
-					<sval type="int" val="12" />
+					<sval type="int" val="14" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="11" />
+					<sval type="int" val="13" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610597111" />
+					<sval type="int" val="-1610594807" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="12" />
+					<sval type="int" val="14" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="143" />
-					<sval type="int" val="12" />
+					<sval type="int" val="14" />
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="129" />
-					<sval type="int" val="8" />
+					<sval type="int" val="10" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="11" />
+					<sval type="int" val="13" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="12" />
+					<sval type="int" val="14" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="105" />
@@ -1661,14 +3588,14 @@
 					<sval type="string" val="SWM3.SetOutpostSpec" />
 					<sval type="int" val="-2147483646" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="8" />
+					<sval type="int" val="10" />
 					<sval type="int" val="1" />
 					<sval type="int" val="4" />
 					<sval type="int" val="50" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="55" />
+					<sval type="int" val="64" />
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="102" />
@@ -1692,10 +3619,10 @@
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610589693" />
+					<sval type="int" val="-1610587389" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="4" />
+					<sval type="int" val="6" />
 					<sval type="int" val="4" />
 					<sval type="int" val="4" />
 					<sval type="int" val="15" />
@@ -1715,7 +3642,7 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="5" />
+					<sval type="int" val="7" />
 					<sval type="int" val="1" />
 					<sval type="int" val="5" />
 					<sval type="string" val="SWM3 обновлен до версии 1.4" />
@@ -1726,36 +3653,36 @@
 					<sval type="int" val="1068" />
 					<sval type="int" val="10" />
 					<sval type="int" val="19" />
-					<sval type="int" val="13" />
+					<sval type="int" val="15" />
 					<sval type="int" val="9" />
 					<sval type="int" val="458752" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="131" />
-					<sval type="int" val="15" />
+					<sval type="int" val="17" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="13" />
+					<sval type="int" val="15" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610593527" />
+					<sval type="int" val="-1610591223" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="15" />
+					<sval type="int" val="17" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="143" />
-					<sval type="int" val="15" />
+					<sval type="int" val="17" />
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="129" />
-					<sval type="int" val="14" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="13" />
+					<sval type="int" val="16" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="15" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="17" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="105" />
@@ -1766,26 +3693,26 @@
 				<sval type="array" size="5">
 					<sval type="int" val="765" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="14" />
+					<sval type="int" val="16" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="10" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="69" />
+					<sval type="int" val="78" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="158" />
 					<sval type="int" val="5" />
 					<sval type="string" val="SWM3_KatanaMissionProgress" />
-					<sval type="int" val="16" />
+					<sval type="int" val="18" />
 				</sval>
 				<sval type="array" size="10">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610589693" />
+					<sval type="int" val="-1610587389" />
 					<sval type="int" val="2" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="16" />
+					<sval type="int" val="18" />
 					<sval type="int" val="15" />
 					<sval type="int" val="65556" />
 					<sval type="int" val="2" />
@@ -1796,22 +3723,22 @@
 					<sval type="int" val="1069" />
 					<sval type="int" val="10" />
 					<sval type="int" val="10" />
-					<sval type="int" val="17" />
+					<sval type="int" val="19" />
 					<sval type="int" val="9" />
 					<sval type="int" val="394115" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="131" />
-					<sval type="int" val="18" />
+					<sval type="int" val="20" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="17" />
+					<sval type="int" val="19" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610589693" />
+					<sval type="int" val="-1610587389" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="18" />
+					<sval type="int" val="20" />
 					<sval type="int" val="4" />
 					<sval type="int" val="1" />
 					<sval type="int" val="15" />
@@ -1830,7 +3757,7 @@
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="126" />
-					<sval type="int" val="19" />
+					<sval type="int" val="5" />
 					<sval type="int" val="4" />
 					<sval type="int" val="4001" />
 					<sval type="int" val="4" />
@@ -1844,7 +3771,7 @@
 					<sval type="int" val="12" />
 					<sval type="int" val="5" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="19" />
+					<sval type="int" val="5" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="10" />
 					<sval type="int" val="131075" />
@@ -1862,7 +3789,7 @@
 				</sval>
 				<sval type="array" size="16">
 					<sval type="int" val="150" />
-					<sval type="int" val="19" />
+					<sval type="int" val="5" />
 					<sval type="int" val="4" />
 					<sval type="int" val="4001" />
 					<sval type="int" val="4" />
@@ -1886,7 +3813,7 @@
 					<sval type="int" val="12" />
 					<sval type="int" val="5" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="19" />
+					<sval type="int" val="5" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="10" />
 					<sval type="int" val="131075" />
@@ -1904,7 +3831,7 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="19" />
+					<sval type="int" val="5" />
 					<sval type="int" val="1" />
 					<sval type="int" val="5" />
 					<sval type="string" val="Расшифруйте данные Дозора Смерти на исследовательской станции." />
@@ -1921,7 +3848,7 @@
 					<sval type="int" val="5" />
 					<sval type="string" val="Тёмная сила" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="19" />
+					<sval type="int" val="5" />
 				</sval>
 				<sval type="array" size="5">
 					<sval type="int" val="157" />
@@ -1930,26 +3857,1231 @@
 					<sval type="int" val="4" />
 					<sval type="int" val="1" />
 				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610549757" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="6" />
+					<sval type="int" val="4" />
+					<sval type="int" val="5" />
+					<sval type="int" val="15" />
+					<sval type="int" val="3" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.ImportShipSizes" />
+					<sval type="int" val="-2147483646" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.GetOutposts" />
+					<sval type="int" val="21" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="10" />
+					<sval type="int" val="10" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="23" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="21" />
+				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610589176" />
+					<sval type="int" val="-1610584311" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
+					<sval type="int" val="23" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="23" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="22" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="21" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="23" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="105" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="156" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="22" />
 					<sval type="int" val="5" />
+					<sval type="string" val="mayhem_perkTable" />
+					<sval type="int" val="24" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="1708" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="24" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Повышение налога 1" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="1708" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="24" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Повышение налога 2" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="103" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.Perk.SetInfo" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.Init.Templates" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="1068" />
+					<sval type="int" val="10" />
+					<sval type="int" val="19" />
+					<sval type="int" val="15" />
+					<sval type="int" val="9" />
+					<sval type="int" val="458752" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="15" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610581751" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="25" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="16" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="15" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="105" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="765" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="16" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="10" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="115" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.Diplomacy.Initialize" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="mayhem_galaxy.progress" />
+					<sval type="int" val="8" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610578685" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.GetOutposts" />
+					<sval type="int" val="26" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="10" />
+					<sval type="int" val="3" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="27" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="26" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610578935" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="27" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="27" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="26" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="27" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="105" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="SWM3.SetOutpostSpec" />
+					<sval type="int" val="-2147483646" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="55" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="126" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="216" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610565883" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.GetOutposts" />
+					<sval type="int" val="9" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="10" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="28" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610576375" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="28" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="28" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="9" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="28" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="105" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="SWM3.SetOutpostSpec" />
+					<sval type="int" val="-2147483646" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="70" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="136" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.GetOutposts" />
+					<sval type="int" val="26" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="10" />
+					<sval type="int" val="3" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="29" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="26" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610574327" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="29" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="29" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="26" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="29" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="105" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="SWM3.SetOutpostSpec" />
+					<sval type="int" val="-2147483646" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="65" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="144" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.GetOutposts" />
+					<sval type="int" val="13" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="10" />
+					<sval type="int" val="19" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="30" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="13" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610572279" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="30" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="30" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="13" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="30" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="105" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="SWM3.SetOutpostSpec" />
+					<sval type="int" val="-2147483646" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="65" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="152" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.GetOutposts" />
+					<sval type="int" val="31" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="10" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="32" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="31" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610570231" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="32" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="32" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="31" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="32" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="105" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="SWM3.SetOutpostSpec" />
+					<sval type="int" val="-2147483646" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="55" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="160" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.GetOutposts" />
+					<sval type="int" val="33" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="10" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="34" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="33" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610568183" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="34" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="34" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="33" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="34" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="105" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="SWM3.SetOutpostSpec" />
+					<sval type="int" val="-2147483646" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="55" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="168" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.GetOutposts" />
+					<sval type="int" val="35" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="10" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="36" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="35" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610566135" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="36" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="36" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="35" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="36" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="105" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="SWM3.SetOutpostSpec" />
+					<sval type="int" val="-2147483646" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="55" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="176" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="216" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610557435" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+					<sval type="int" val="4" />
+					<sval type="int" val="3" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.GetOutposts" />
+					<sval type="int" val="26" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="10" />
+					<sval type="int" val="3" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="37" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="26" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610563575" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="37" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="37" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="26" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="37" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="105" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="SWM3.SetOutpostSpec" />
+					<sval type="int" val="-2147483646" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="70" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="186" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.GetOutposts" />
+					<sval type="int" val="31" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="10" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="38" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="31" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610561527" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="38" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="38" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="31" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="38" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="105" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="SWM3.SetOutpostSpec" />
+					<sval type="int" val="-2147483646" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="70" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="194" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.GetOutposts" />
+					<sval type="int" val="33" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="10" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="39" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="33" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610559479" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="39" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="39" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="33" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="39" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="105" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="SWM3.SetOutpostSpec" />
+					<sval type="int" val="-2147483646" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="70" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="202" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.GetOutposts" />
+					<sval type="int" val="35" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="10" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="40" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="35" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610557431" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="40" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="40" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="35" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="40" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="105" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="SWM3.SetOutpostSpec" />
+					<sval type="int" val="-2147483646" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="75" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="210" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="mayhem_maxSpecializationLevel" />
+					<sval type="int" val="41" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="41" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="41" />
+					<sval type="int" val="4" />
+					<sval type="int" val="25" />
+					<sval type="int" val="15" />
+					<sval type="int" val="12" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="12" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.GetOutposts" />
+					<sval type="int" val="42" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="10" />
+					<sval type="int" val="10" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="43" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="42" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="128" />
+					<sval type="int" val="44" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="45" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="42" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610552823" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="45" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="45" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="42" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="45" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="105" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="156" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+					<sval type="int" val="5" />
+					<sval type="string" val="mayhem_specializationShip" />
+					<sval type="int" val="46" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610553085" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="46" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="41" />
+					<sval type="int" val="15" />
+					<sval type="int" val="2" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="2" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="44" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-536811769" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="47" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="47" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="46" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610553080" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="46" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="47" />
+					<sval type="int" val="15" />
+					<sval type="int" val="2" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="2" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="47" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="46" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="222" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="48" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="47" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="41" />
+					<sval type="int" val="15" />
+					<sval type="int" val="12" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="12" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="48" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="48" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+					<sval type="int" val="15" />
+					<sval type="int" val="14" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="14" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="46" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="41" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="48" />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="49" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="44" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610550263" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="49" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="49" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="44" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="49" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="105" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="SWM3.SetOutpostSpec" />
+					<sval type="int" val="-2147483646" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="46" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="238" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.Init.Templates" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="7" />
+					<sval type="int" val="1" />
+					<sval type="int" val="5" />
+					<sval type="string" val="updated for SWM3 1.6 Warlord." />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610546941" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="6" />
+					<sval type="int" val="4" />
+					<sval type="int" val="6" />
+					<sval type="int" val="15" />
+					<sval type="int" val="3" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="1069" />
+					<sval type="int" val="10" />
+					<sval type="int" val="9" />
+					<sval type="int" val="50" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="51" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="53" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="50" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610547191" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="53" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="53" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="52" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="50" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="53" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="105" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="750" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="52" />
+					<sval type="int" val="9" />
+					<sval type="int" val="1048658" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="646" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="52" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="4" />
+					<sval type="int" val="100000" />
+					<sval type="int" val="9" />
+					<sval type="int" val="1048658" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="249" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="7" />
+					<sval type="int" val="1" />
+					<sval type="int" val="5" />
+					<sval type="string" val="updated for SWM3 1.6.1 Warlord." />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610546424" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
 				<sval type="array" size="3">
 					<sval type="int" val="400" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="5" />
+					<sval type="int" val="7" />
 				</sval>
 				<sval type="array" size="1">
 					<sval type="int" val="1168" />
 				</sval>
 			</sval>
 			<sval type="int" val="0" />
-			<sval type="array" size="37">
+			<sval type="array" size="66">
 				<sval type="array" size="2">
 					<sval type="int" val="0" />
 					<sval type="int" val="2" />
@@ -1957,7 +5089,7 @@
 				<sval type="array" size="3">
 					<sval type="int" val="1" />
 					<sval type="int" val="1" />
-					<sval type="string" val="SWM3 1.4 (Mayhem 3.14d)" />
+					<sval type="string" val="SWM3 1.6.1 (Mayhem 3.14d)" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="1" />
@@ -1973,138 +5105,257 @@
 					<sval type="string" val="Each load." />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="3" />
+					<sval type="int" val="4" />
 					<sval type="int" val="1" />
 					<sval type="string" val="SWM3 doesnt have its own Init.Variables script so the following is put here" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="9" />
+					<sval type="int" val="10" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="10" />
+					<sval type="int" val="1" />
+					<sval type="string" val="safety check in case 'The Dark Force' mission didnt start properly" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="18" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="9" />
+					<sval type="int" val="18" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="18" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="18" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="18" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="10" />
+					<sval type="int" val="19" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="11" />
+					<sval type="int" val="20" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="11" />
+					<sval type="int" val="20" />
 					<sval type="int" val="1" />
 					<sval type="string" val="=================================================" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="11" />
-					<sval type="int" val="2" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="13" />
-					<sval type="int" val="2" />
-				</sval>
-				<sval type="array" size="2">
 					<sval type="int" val="20" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="22" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="29" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="20" />
+					<sval type="int" val="29" />
 					<sval type="int" val="1" />
 					<sval type="string" val="Update encyclopedia and equipment price at each new update." />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="22" />
+					<sval type="int" val="31" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="22" />
+					<sval type="int" val="31" />
 					<sval type="int" val="1" />
 					<sval type="string" val="1.2 Hyperlanes" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="32" />
+					<sval type="int" val="41" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="32" />
+					<sval type="int" val="41" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="32" />
+					<sval type="int" val="41" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="32" />
+					<sval type="int" val="41" />
 					<sval type="int" val="1" />
 					<sval type="string" val="1.3 Mandalorian quest" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="43" />
+					<sval type="int" val="52" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="53" />
+					<sval type="int" val="62" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="61" />
+					<sval type="int" val="70" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="61" />
+					<sval type="int" val="70" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="64" />
+					<sval type="int" val="73" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="64" />
+					<sval type="int" val="73" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="64" />
+					<sval type="int" val="73" />
 					<sval type="int" val="1" />
 					<sval type="string" val="1.4 Katana Fleet" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="75" />
+					<sval type="int" val="84" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="80" />
+					<sval type="int" val="89" />
 					<sval type="int" val="1" />
 					<sval type="string" val="First station tutorial message and bonus." />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="90" />
+					<sval type="int" val="99" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="90" />
+					<sval type="int" val="99" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="90" />
+					<sval type="int" val="99" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="90" />
+					<sval type="int" val="99" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="99" />
+					<sval type="int" val="1" />
+					<sval type="string" val="1.6 Warlord" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="111" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="121" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="132" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="142" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="150" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="158" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="166" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="174" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="182" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="192" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="200" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="208" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="216" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="216" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="233" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="234" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="244" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="246" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="246" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="246" />
+					<sval type="int" val="1" />
+					<sval type="string" val="1.6.1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="256" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="257" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="257" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="92" />
+					<sval type="int" val="259" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="92" />
+					<sval type="int" val="259" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="92" />
+					<sval type="int" val="259" />
 					<sval type="int" val="2" />
 				</sval>
 			</sval>

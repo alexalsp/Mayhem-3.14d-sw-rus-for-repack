@@ -62,62 +62,81 @@
 <page id="9972" title="Mayhem 3">
 		
 		<t id="1">1200</t> <!-- Research cycle, in seconds (default: 1200) -->
-		<t id="2">5</t> <!-- Outposts building update cycle, in seconds (default: 5) -->
-		<t id="8">300</t> <!-- Food consumption cycle, in seconds. (default: 300) -->
-		<t id="9">1</t> <!-- Outpost resource consumption factor per consumption cycle (* people). (default: 1) -->
+		<t id="158">10</t> <!-- Research points per scan from data scanner. (default: 10) -->
+		<t id="201">10</t> <!-- Research points per research cycle at 100%. (default: 10) -->
 		<t id="10">100</t> <!-- Research cost multiplier (default: 100) -->
+		<t id="2">5</t> <!-- Outposts building update cycle, in seconds (default: 5) -->
+		<t id="176">100</t> <!-- General crafting resource cost multiplier, for lasers, missiles, shields, stations and ships. (default: 100) -->
+		<t id="200">100</t> <!-- General crafting time cost multiplier, for lasers, missiles, shields, stations and ships. (default: 100) -->
+		<t id="261">33</t> <!-- General crafting time cost multiplier, for lasers, missiles, shields, stations and ships. Prologue mode only. (default: 33) -->
+		<t id="131">9</t> <!-- Quality factor. (default: 9) -->
+		<t id="39">50</t> <!-- Recycle factor, in % of normal costs. (default: 50) -->
+		<t id="38">0</t> <!-- Food display after Outposts names, 0 to deactivate. Also affect Research station info display. (default: 0) -->
 		<t id="18">1700</t> <!-- Minimum time between the OCV waves, in seconds (global invasion). (default: 1700) -->
 		<t id="19">1900</t> <!-- Maximum time between the OCV waves, in seconds (global invasion). (default: 1900) -->
-		<t id="38">0</t> <!-- Food display after Outposts names, 0 to deactivate. Also affect Research station info display. (default: 0) -->
-		<t id="39">50</t> <!-- Recycle factor, in % of normal costs. (default: 50) -->
+		<t id="204">3600</t> <!-- Xenon small invasions delay, in seconds. (default: 3600) -->
+		<t id="207">21600</t> <!-- Xenon big invasions delay, in seconds. (default: 21600) -->
+		<t id="209">1350</t> <!-- Pirate fighters spawning delay, in seconds. (default: 1350) -->
+		<t id="219">50</t> <!-- Pirate limit in all the galaxy. (default: 50) -->
+		<t id="212">8</t> <!-- Maximum number of pirate bases in the galaxy. (default: 8) -->
+		<t id="221">1</t> <!-- Scale pirate fighters spawn to the size of the player territory. If set to 0, only one pirate will spawn at each cycle. (default: 1) -->
 		<t id="70">3</t> <!-- Maximum perks per Outposts. (default: 3) -->
-		<t id="71">20000</t> <!-- Total project size needed to increase ship specialization by 1%. (default: 20000) -->		
-		<t id="72">20000</t> <!-- Total project size needed to increase laser specialization by 1%. (default: 20000) -->		
-		<t id="73">20000</t> <!-- Total project size needed to increase missile specialization by 1%. (default: 20000) -->		
-		<t id="74">20000</t> <!-- Total project size needed to increase shield specialization by 1%. (default: 20000) -->
+		<t id="71">40000</t> <!-- Total project size needed to increase ship specialization by 1%. (default: 40000) -->		
+		<t id="72">40000</t> <!-- Total project size needed to increase laser specialization by 1%. (default: 40000) -->		
+		<t id="73">40000</t> <!-- Total project size needed to increase missile specialization by 1%. (default: 40000) -->		
+		<t id="74">40000</t> <!-- Total project size needed to increase shield specialization by 1%. (default: 40000) -->
+		<t id="175">40000</t> <!-- Total project size needed to increase station specialization by 1%. (default: 40000) -->
+		<t id="142">75</t> <!-- Definite maximum specialization level. NOTE: the starting value for most NPCs and the spec levelup limit for the player is always 25 points below this setting (default: 75) -->
+		<t id="164">1200</t> <!-- Maintenance cycle, in seconds. (default: 600) -->	
 		<t id="75">200</t> <!-- Maintenance cost multiplier. (default: 100) -->
-		<t id="76">5</t> <!-- People max. growth per consumption cycle. (default: 5) -->
+		<t id="177">0</t> <!-- Free maintenance for the ship you're piloting yourself. (default: 0) -->
 		<t id="98">100</t> <!-- Tax multiplier. Tax is based on number of people and is collected every hour. (default: 100) -->
 		<t id="119">0</t> <!-- Player cheat: all ships you craft receive full lasers and shields. (default: 0) -->	
-		<t id="131">9</t> <!-- Quality factor. (default: 9) -->
 		<t id="132">0</t> <!-- Disable bailing. (default: 0) -->
+		<t id="213">100</t> <!-- Bailing chance multiplier. (default: 100) -->
+		<t id="210">0</t> <!-- Player ships can bail. (default: 0) -->
+		<t id="197">100</t> <!-- Maximum bailing ships that can be in the galaxy at the same time. (default: 100) -->
+		<t id="214">2</t> <!-- Maximum bailing ships that can be in the same sector at the same time. (default: 2) -->
 		<t id="139">1800</t> <!-- How often the AI checks for its station needs, in seconds. (default: 1800) -->
 		<t id="140">20</t> <!-- Chances (out of 1000) for every ship to drop EACH of his shield/laser when destroyed by ANYONE. (default: 20) -->
-		<t id="142">50</t> <!-- Maximum specialization level. (default: 50) -->
+		<t id="232">40</t> <!-- Chances (out of 1000) for every ship to drop EACH of his shield/laser when destroyed by PLAYERSHIP. (default: 40) -->
+		<t id="8">300</t> <!-- Food consumption cycle, in seconds. (default: 300) -->
+		<t id="76">20</t> <!-- People max. growth per consumption cycle. (default: 20) -->
 		<t id="143">6</t> <!-- Waste production factor per consumption cycle (* people). (default: 6) -->
+		<t id="205">100</t> <!-- E-Cell production multiplier (from Solar Panels perk). (default: 100) -->
 		<t id="144">2</t> <!-- Outpost product production factor per consumption cycle (* people). (default: 2) -->
-		<t id="145">4</t> <!-- Fleet ratio per X sectors owned (negative is per sector) - Battle Group. (default: 4) -->
-		<t id="146">4</t> <!-- Fleet ratio per X sectors owned (negative is per sector) - Border Patrol. (default: 4) -->
-		<t id="147">4</t> <!-- Fleet ratio per X sectors owned (negative is per sector) - Rearguard. (default: 4) -->
+		<t id="9">1</t> <!-- Outpost resource consumption factor per consumption cycle (* people). (default: 1) -->
+		<t id="145">3</t> <!-- Fleet ratio per X sectors owned (negative is per sector) - Battle Group. (default: 3) -->
+		<t id="146">6</t> <!-- Fleet ratio per X sectors owned (negative is per sector) - Border Patrol. (default: 6) -->
+		<t id="147">3</t> <!-- Fleet ratio per X sectors owned (negative is per sector) - Rearguard. (default: 3) -->
 		<t id="148">4</t> <!-- Fleet ratio per X sectors owned (negative is per sector) - Task Force. (default: 4) -->
 		<t id="149">2</t> <!-- Fleet ratio per X sectors owned (negative is per sector) - Police. (default: 2) -->
 		<t id="150">1</t> <!-- Fleet ratio per X sectors owned (negative is per sector) - Escort. (default: 1) -->
 		<t id="151">2</t> <!-- Initiative ratio. That's how stronger a Battle Group or a Task Force AI fleet needs to be to attack another one. (default: 2) -->
 		<t id="152">4</t> <!-- Retreat ratio. Ratio at which an AI fleet will retreat to the nearest safe Outpost and wait for full reinforcement. Does not affect Police and Escort. (default: 4) -->
 		<t id="153">0</t> <!-- AI cheat: debt system. The AI will build anything when it needs it, and will pay the costs later, if it can. (default: 0) -->
+		<t id="208">1</t> <!-- AI cheat: debt system, only for stations. (default: 1) -->
+		<t id="217">1</t> <!-- AI cheat: debt system, only for Yakis. (default: 1) -->
 		<t id="154">1</t> <!-- AI cheat: shared resources. The AI will use all its Outposts to pay for what it needs. The transfer of resources is free and immediate. (default: 1) -->
+		<t id="159">0</t> <!-- AI cheat: it sees everything and doesn't need to have a ship in a sector to monitor it. For performance reasons, AI Traders and Agents always see everything. (default: 0) -->				
+		<t id="170">0</t> <!-- AI cheat: ships come fully equipped instead of crafting the equipment from real resources. (default: 0) -->
+		<t id="172">0</t> <!-- AI cheat: free stations. (default: 0) -->
+		<t id="222">3600</t> <!-- AI cheat: timeout, in seconds, after which the AI ships waiting to be outfitted will be automatically equipped. 0 is deactivated. (default: 14400) -->
+		<t id="173">10000</t> <!-- Amount of hull repaired by any Outpost every minute. (default: 10000) -->
 		<t id="155">5000</t> <!-- Amount of hull repaired by the Carrier Repair Module every minute. (default: 5000) -->
+		<t id="191">10000</t> <!-- Hull points that all stations regenerate about every minute. (default: 10000) -->
+		<t id="163">14400</t> <!-- Claim duration, in seconds. (default: 14400) -->
 		<t id="156">7200</t> <!-- Truce duration, in seconds. (default: 7200) -->
 		<t id="157">21600</t> <!-- Protectorate duration, in seconds. (default: 21600) -->				
-		<t id="158">10</t> <!-- Research points per scan from data scanner. (default: 10) -->
-		<t id="159">0</t> <!-- AI cheat: it sees everything and doesn't need to have a ship in a sector to monitor it. For performance reasons, AI Traders and Agents always see everything. (default: 0) -->				
 		<t id="160">-3000</t> <!-- Reputation modifier when the player claims a sector against its owner. (default: -3000) -->				
 		<t id="161">-500</t> <!-- Reputation modifier when the player conquers a sector against all surrounding sector owners, per player sector. (default: -500) -->				
 		<t id="162">1000000</t> <!-- Penalty you must pay if you destroy a station from a Protectorate. (default: 1000000) -->				
-		<t id="163">14400</t> <!-- Claim duration, in seconds. (default: 14400) -->
-		<t id="164">1200</t> <!-- Maintenance cycle, in seconds. (default: 600) -->	
-		<t id="165">5000</t> <!-- Illegal cargo scan penalty. (default: 5000) -->
+		<t id="165">0</t> <!-- Illegal cargo scan penalty. (default: 0) -->
 		<t id="166">3600</t> <!-- Mission offer timeout, in seconds. (default: 3600) -->
 		<t id="167">100</t> <!-- Mission credits reward multiplier. (default: 100) -->
 		<t id="168">100</t> <!-- Mission reputation reward multiplier. (default: 100) -->
-		<t id="170">0</t> <!-- AI cheat: ships come fully equipped instead of crafting the equipment from real resources. (default: 0) -->
 		<t id="171">4</t> <!-- Maximum marines you can enlist per Outpost you own. (default: 4) -->
-		<t id="172">0</t> <!-- AI cheat: free stations. (default: 0) -->
-		<t id="173">10000</t> <!-- Amount of hull repaired by any Outpost every minute. (default: 10000) -->
 		<t id="174">10</t> <!-- Cost of a Jump Beacon, in Jumpdrive Cores. (default: 10) -->
-		<t id="175">200000</t> <!-- Total project size needed to increase station specialization by 1%. (default: 200000) -->
-		<t id="176">100</t> <!-- General crafting resource cost multiplier, for lasers, missiles, shields, stations and ships. (default: 100) -->
-		<t id="177">0</t> <!-- Free maintenance for the ship you're piloting yourself. (default: 0) -->
 		<t id="178">33</t> <!-- Terracorp Interorbital Storage costs multiplier, in percent. (default: 33) -->
 		<t id="179">20</t> <!-- Number of people at which the chance of an event per hour is increased by 1%. (default: 20) -->
 		<t id="180">3</t> <!-- Marine boarding: number of decks per M7. (default: 3) -->
@@ -128,131 +147,82 @@
 		<t id="185">5</t> <!-- Marine boarding: minimum room per deck. Cannot be lower than 2. (default: 5) -->
 		<t id="186">6</t> <!-- Marine boarding: maximum room per deck. (default: 6) -->
 		<t id="187">100</t> <!-- Marine boarding: boarding tasks goal score multiplier. Decrease to make progress go faster. (default: 100) -->
-		<t id="188">14400</t> <!-- EMP delay, in seconds. (default: 14400) -->
 		<t id="189">10</t> <!-- Marine boarding: maximum target shields to allow ship boarding. (default: 10) -->
 		<t id="190">100</t> <!-- Marine boarding: marine transmissions decoding duration multiplier. (default: 100) -->
-		<t id="191">100000</t> <!-- Hull points that all stations regenerate about every minute. (default: 100000) -->
+		<t id="188">14400</t> <!-- EMP delay, in seconds. (default: 14400) -->
 		<t id="192">0</t> <!-- Jumpdrive Prototype: only jump to sectors you own. (default: 0) -->
 		<t id="193">0</t> <!-- Experimental Transporter Device: only teleport to ships equipped with a Transporter Device. (default: 0) -->
 		<t id="194">600</t> <!-- Jumpdrive Prototype cooldown. (default: 600) -->
 		<t id="195">60</t> <!-- Experimental Transporter Device cooldown. (default: 60) -->
-		<t id="196">43200</t> <!-- Period of time, in seconds, during which the AI will build everything for free if the galaxy expansion has been set to "none". (default: 43200) -->
-		<t id="197">100</t> <!-- Maximum bailing ships that can be in the galaxy at the same time. (default: 100) -->
+		<t id="203">0</t> <!-- Player Outposts are free (AI Outposts are always free). (default: 0) -->
 		<t id="198">0</t> <!-- Ascension needs to be completed to allow the AI to claim sectors. (default: 0) -->
 		<t id="199">0</t> <!-- Reputation rank under which the AI can invade player sectors. eg. at 0, AI will invade player sectors only if the player has -1 to -5. (default: 0) -->	
-		<t id="200">100</t> <!-- General crafting time cost multiplier, for lasers, missiles, shields, stations and ships. (default: 100) -->
-		<t id="201">10</t> <!-- Research points per research cycle at 100%. (default: 10) -->
-		<t id="203">0</t> <!-- Player Outposts are free (AI Outposts are always free). (default: 0) -->
-		<t id="204">3600</t> <!-- Xenon small invasions delay, in seconds. (default: 3600) -->
-		<t id="205">100</t> <!-- E-Cell production multiplier (from Solar Panels perk). (default: 100) -->
 		<t id="206">0</t> <!-- Deep strike: allows Battle Groups to invade sectors that do not border their own sectors. Yakis always have Deep strike ON. (default: 0) -->
-		<t id="207">21600</t> <!-- Xenon big invasions delay, in seconds. (default: 14400) -->
-		<t id="208">1</t> <!-- AI cheat: debt system, only for stations. (default: 1) -->
-		<t id="209">1350</t> <!-- Pirate fighters spawning delay, in seconds. (default: 900) -->
-		<t id="210">0</t> <!-- Player ships can bail. (default: 0) -->
+		<t id="196">43200</t> <!-- Period of time, in seconds, during which the AI will build everything for free if the galaxy expansion has been set to "none". (default: 43200) -->
 		<t id="211">3</t> <!-- If the AI owns this number of sectors, or less, every crafting will be free. (default: 3) -->
-		<t id="212">8</t> <!-- Maximum number of pirate bases in the galaxy. (default: 8) -->
-		<t id="213">100</t> <!-- Bailing chance multiplier. (default: 100) -->
-		<t id="214">2</t> <!-- Maximum bailing ships that can be in the same sector at the same time. (default: 2) -->
 		<t id="215">1</t> <!-- All player's Workers and Trade run ships use the Fly Safe Path algorithm as default move. Does not affect AI ships. (default: 1) -->
-		<t id="217">1</t> <!-- AI cheat: debt system, only for Yakis. (default: 1) -->
 		<t id="218">0</t> <!-- During the last stage of the plot, OCV only spawns a new wave if the previous one has been totally destroyed. Makes things a lot easier if set to 1. (default: 0) -->
-		<t id="219">50</t> <!-- Pirate limit in all the galaxy. (default: 50) -->
 		<t id="220">21600</t> <!-- Maximum time the AI can spend in "retreat mode", in seconds. (default: 21600) -->
-		<t id="221">1</t> <!-- Scale pirate fighters spawn to the size of the player territory. If set to 0, only one pirate will spawn at each cycle. (default: 1) -->
-		<t id="222">3600</t> <!-- AI cheat: timeout, in seconds, after which the AI ships waiting to be outfitted will be automatically equipped. 0 is deactivated. (default: 14400) -->
 		<t id="223">517</t> <!-- Reputation cost multiplier to reset your reputation to 0 from a Pirate base. (default: 517) -->
-		<t id="224">0</t> <!-- No-main-turrets-ships VS station tactics. 0: the ship rotates around itself while firing, 1: the ship makes a full stop, 2: the ship circles around the station. This tactics does not apply to ships that have main turrets. In that case, they will behave like fighters, facing the targeted station at all times. (default: 0) -->
+		<t id="224">1</t> <!-- No-main-turrets-ships VS station tactics. 0: the ship rotates around itself while firing, 1: the ship makes a full stop, 2: the ship circles around the station. This tactics does not apply to ships that have main turrets. In that case, they will behave like fighters, facing the targeted station at all times. (default: 0) -->
 		<t id="225">0</t> <!-- Hide Outpost production messages. (default: 0) -->
+		<t id="260">1</t> <!-- Hide Outpost production messages for lasers, shields and missiles. (default: 1) -->
 		<t id="226">0</t> <!-- Disable player ships fallback manoeuvres. (default: 0) -->
 		<t id="227">500000</t> <!-- Favor point cost. (default: 500000) -->
 		<t id="228">5</t> <!-- AI will not invade empires that own less than or equal to this number of sectors. Set to 0 if you want the AI to be able to annihilate other empires. (default: 3) -->
 		<t id="229">1</t> <!-- Additional combat manoeuvres for all fighters. (default: 1) -->
 		<t id="230">0</t> <!-- Additional combat manoeuvres for all big ships. (default: 0) -->
 		<t id="231">0</t> <!-- Player cheat: ignore all docking restrictions. (default: 0) -->
-		<t id="232">40</t> <!-- Chances (out of 1000) for every ship to drop EACH of his shield/laser when destroyed by PLAYERSHIP. (default: 40) -->
 		<t id="233">20</t> <!-- Production queue limit for each Outpost. (default: 20) -->
 		<t id="234">0</t> <!-- Enable Outpost events lore messages (id 2700 to 2704). (default: 0) -->
 		<t id="235">20</t> <!-- Default import threshold for player. (default: 10) -->
 		<t id="236">40</t> <!-- Default export threshold for player. (default: 40) -->
 		<t id="237">40</t> <!-- Default import threshold for AI. (default: 20) -->
 		<t id="238">50</t> <!-- Default export threshold for AI. (default: 40) -->
-		<t id="239">43200</t> <!-- Hive Queen min delay. (default: 43200) -->
-		<t id="240">54000</t> <!-- Hive Queen max delay. (default: 54000) -->
-
-<!-- ===================================== 3.2 ================================================== -->
+		<t id="239">86400</t> <!-- Hive Queen min delay. (default: 86400) -->
+		<t id="240">108000</t> <!-- Hive Queen max delay. (default: 108000) -->
 		<t id="241">3</t> <!-- Number of planets you need to terraform on behalf of Terracorp. (default: 10) -->
-		<t id="242">8</t> <!-- Maximum number of sectors the Yakis will conquer, in percentage of total galaxy. (default: 8) -->
+		<t id="242">8</t> <!-- Maximum number of sectors the Yakis will conquer, in percentage of total galaxy. (default: 5) -->
 		<t id="243">100</t> <!-- Taxi credits payment multiplier, in percent. (default: 100) -->
 		<t id="244">100</t> <!-- Taxi reputation payment multiplier, in percent. (default: 100) -->
 		<t id="245">500000</t> <!-- Threshold, in credits, under which a strategic resource is considered in shortage (see the Diplomacy menu). (default: 500000) -->
-		<t id="246">0</t> <!-- Activate the "Ship purchase" feature. (default: 0) // Активация функции "Покупка корабля". (по умолчанию: 0) -->
+		<t id="246">0</t> <!-- Activate the "Ship purchase" feature. (default: 0) -->
 		<t id="247">2</t> <!-- Ship purchase: the amount of ships the faction should be able to build before accepting the player's order. (default: 2) -->
 		<t id="248">120</t> <!-- Ship purchase cost multiplier, in percent. (default: 120) -->
 		<t id="249">10</t> <!-- Favor point cost, in Loyalty points. (default: 10) -->
 		<t id="250">1</t> <!-- Allied factions share their resources. Option id 154 must be enabled. Also affects coalitions. (default: 1) -->
-		<t id="251">0</t> <!-- Number of play time, in seconds, under which the maximum number of Unknown sectors the AI can conquer is scaled on the player expansion. 0 means that the AI will ALWAYS wait for the player before considering expanding into Unknown sectors. While the Ascension is in progress, timer is always at 0. (default: 0) -->
-
+		<t id="251">0</t> <!-- Number of play time, in seconds, under which the maximum number of Unknown sectors the AI can conquer is scaled on the player expansion. 0 means that the AI will ALWAYS wait for the player before considering expanding into Unknown sectors. While the Ascension is in progress, timer is always at 0. Late game removes that restriction. (default: 0) -->
 		<t id="252">100</t> <!-- Starting resource multiplier, for all AI Outposts, in percent. Only affects default Outposts spawned during galaxy generation. (default: 100) -->
 		<t id="253">15000</t> <!-- Bounty added to one ship when he kills a Freighter. (default: 15000) -->
-		<t id="254">20</t> <!-- Chance of a ship type to receive the "high research cost" trait during galaxy generation, in percent. (default: 20) -->
+		<t id="254">0</t> <!-- Chance of a ship type to receive the "high research cost" trait during galaxy generation, in percent. (default: 20) -->
 		<t id="255">3</t> <!-- High research cost multiplier. (default: 3) -->
-		<t id="256">5</t> <!-- Company Traders per Trading station. (default: 5) //Торговых компаний на одну торговую станцию. (по умолчанию: 5)  -->
-		
-		<t id="257">0</t> <!-- Coalition system. (default: 1) ///  Система коалиций. (по умолчанию: 1) -->
+		<t id="256">5</t> <!-- Company Traders per Trading station. (default: 5) -->
+		<t id="257">0</t> <!-- Coalition system. (default: 1) -->
 		<t id="258">10</t> <!-- Coalition tolerance factor: how much bigger an empire needs to be, in % galaxy control, for a faction to roll a coalition check against it. (default: 10) -->
-
-		<t id="259">0</t> <!-- If set to 1, all Battle Groups will await to be completed before considering an invasion. (default: 0) ///  Если задано значение 1, все боевые группы будут ожидать завершения, до рассмотрения вопроса о вторжении. (по умолчанию: 0)-->
-
-<!-- ===================================== 3.7 ================================================== -->
-
-		<t id="260">1</t> <!-- Hide Outpost production messages for lasers, shields and missiles. (default: 1) /// Скрывать сообщения Форпостов о создании лазеров, щитов и ракет. (по умолчанию: 1)  -->
-		<t id="261">33</t> <!-- General crafting time cost multiplier, for lasers, missiles, shields, stations and ships. Prologue mode only. (default: 33) // Общий Показатель времени необходимое для  производства лазеров, ракет, щитов, станций и кораблей. Только в режиме ПРОЛОГ. (по умолчанию: 33)  -->
-		<t id="262">90</t> <!-- Prologue mode: chance for each sector to be owned by Xenons. The rest is Unknown and empty. (default: 90) ////  Старт игры -  Пролог: шанс принадлежности всех секторов Ксенонам. Другие сектора Неизвестные и Пустые. (по умолчанию: 90)  -->
-				
-<!-- ===================================== 3.8 ================================================== -->
-				
-				
-		<t id="263">0</t> <!-- Принудительная активация десантников / системы абордажа. Большинство игроков сообщают о проблемах в игре, используйте только в том случае, если знаете, что делаете. Не поддерживаемая функция. (по умолчанию: 0) -->
-		<t id="264">1</t> <!-- ИИ может строить М7М. Необходима новая игра. (по умолчанию: 1) -->
-		<t id="265">50000</t> <!-- Fine you'll have to pay if you get caught by the Police transporting illegal wares. (default: 50000)  ///  Если поймала полиция за перевозкой незаконных товаров, вы можете заплатить штраф. (по умолчанию: 50000) -->
-		<t id="266">100</t> <!-- Cargo hauler credits payment multiplier, in percent. (default: 100) //// Показатель оплаты грузоперевозок, в процентах. (по умолчанию: 100) -->
-		<t id="267">100</t> <!-- Cargo hauler reputation payment multiplier, in percent. (default: 100) //// Показатель репутации репутации грузоперевозок, в процентах.  (по умолчанию: 100) -->
-		<t id="268">40000</t> <!-- Taxi improvement cost. (default: 40000) /////  Стоимость модернизации такси. (по умолчанию: 40000) -->
-		<t id="269">95</t> <!-- Maximum target shields, in percent, to fire a missile (ie. the attacker will fire only below this value). Affects all ships. (default: 95) /// Максимальный уровень щитов цели, в процентах, для запуска ракеты (т.е. атакующий будет выпускать ракеты  только ниже этого значения). Затрагивает все корабли. (по умолчанию: 95)  -->
-		<t id="270">8</t> <!-- Ракетные турели (M7M / M8) перестанут стрелять, если количество летящих ракет в цель уже составляет указанное число. (По умлчанию: 8) -->
-				
-
-<!-- ===================================== 3.9 ================================================== -->
-
-		<t id="271">100</t> <!-- Hacking costs multiplier, in percent. (default: 100) // Показатель затрат на взлом, в процентах. -->
-		<t id="272">50</t> <!-- Mobile factory efficiency multiplier, in percent, compared to conventional factories. (default: 50) // Показатель эффективности мобильной фабрики, в процентах, по сравнению с обычными фабриками. -->
+		<t id="259">0</t> <!-- If set to 1, all Battle Groups will await to be completed before considering an invasion. (default: 0) -->
+		<t id="262">90</t> <!-- Prologue mode: chance for each sector to be owned by Xenons. The rest is Unknown and empty. (default: 90) -->
+		<t id="263">0</t> <!-- Forced activation of the marines / boarding system. Many players report savegame corruption, use only if you know what you're doing. Unsupported feature. (default: 0) -->
+		<t id="264">1</t> <!-- AI is allowed to build M7Ms. New game required. (default: 1) -->
+		<t id="265">50000</t> <!-- Fine you'll have to pay if you get caught by the Police transporting illegal wares. (default: 50000) -->
+		<t id="266">100</t> <!-- Cargo hauler credits payment multiplier, in percent. (default: 100) -->
+		<t id="267">100</t> <!-- Cargo hauler reputation payment multiplier, in percent. (default: 100) -->
+		<t id="268">40000</t> <!-- Taxi improvement cost. (default: 40000) -->
+		<t id="269">95</t> <!-- Maximum target shields, in percent, to fire a missile (ie. the attacker will fire only below this value). Affects all ships, except M7M and M8. (default: 95) -->
+		<t id="270">8</t> <!-- Missile turrets (M7M / M8) will not fire if the number of incoming missiles to target is above this number. (default: 8) -->
+		<t id="271">100</t> <!-- Hacking costs multiplier, in percent. (default: 100) -->
+		<t id="272">50</t> <!-- Mobile factory efficiency multiplier, in percent, compared to conventional factories. (default: 50) -->
 		<t id="273">0</t> <!-- Mobile factories you can use at the same time. 0 for unlimited. (default: 0) -->
-		<t id="274">400000</t> <!-- Active defence cost. (default: 400000) / Цена активной обороны. -->
-		<t id="275">2400</t> <!-- Active defence duration, in seconds. (default: 2400)/ Время действия активной обороны, в секундах.  -->
-				
-<!-- ===================================== 3.10 ================================================== -->
-
-		<t id="276">10</t> <!-- Maximum groups of mercenaries per each company. (default: 10)/ Максимальное количество групп наёмников на каждую компанию.  -->
-		<t id="277">10</t> <!-- Chance of loading illegal ware when a mercenary reaches a station. (default: 10) / Шанс загрузки нелегальных товаров при прибытии наемника на станцию. -->
+		<t id="274">400000</t> <!-- Active defence cost. (default: 400000) -->
+		<t id="275">2400</t> <!-- Active defence duration, in seconds. (default: 2400) -->
+		<t id="276">10</t> <!-- Maximum groups of mercenaries per each company. (default: 10) -->
+		<t id="277">10</t> <!-- Chance of loading illegal ware when a mercenary reaches a station. (default: 10) -->
 		<t id="278">0</t> <!-- Resource-free factories. New game recommended, as it won't change your current factories. (default: 0) -->
 		<t id="279">0</t> <!-- Stations drop part of their wares when destroyed. (default: 0) -->
-				
-<!-- ===================================== 3.13 ================================================== -->
-
-
-		<t id="280">5000</t> <!-- Extra waiting time between turret firing for Fighters. The only purpose of this setting is to increase performance. (default: 5000) / Увеличение задержки перед стрельбой турелей истребителей. Единственная цель этой настройки - повышение производительности. -->
-		<t id="281">6000</t> <!-- Extra waiting time between turret firing for Big Ships. The only purpose of this setting is to increase performance. (default: 6000) / Увеличенное задержки между стрельбой турей больших кораблей.  Единственная цель этой настройки - повышение производительности. -->
-		<t id="282">1</t> <!-- Extra waiting time between turret firing for Huge Ships. The only purpose of this setting is to increase performance. (default: 0) / Увеличение задержки между стрельбой из турелей для Огромных Кораблей.  Единственная цель этой настройки - повышение производительности. -->
-
-		<t id="283">0</t> <!-- Number of sectors UNDER which an empire will only build half of the ships they need in each squadron. The amount of squadrons is not modified. 0 to deactivate (default: 7) / Количество секторов, при наличии которых империя будет строить только половину флота. Количество эскадрилий не изменяется. 0 - для деактивации. -->
-		
-		
-<!-- ===================================== 3.14 ================================================== -->
-		
+		<t id="280">5000</t> <!-- Extra waiting time between turret firing for Fighters. The only purpose of this setting is to increase performance. (default: 5000) -->
+		<t id="281">6000</t> <!-- Extra waiting time between turret firing for Big Ships. The only purpose of this setting is to increase performance. (default: 6000) -->
+		<t id="282">1</t> <!-- Extra waiting time between turret firing for Huge Ships. The only purpose of this setting is to increase performance. (default: 0) -->
+		<t id="283">0</t> <!-- Number of sectors UNDER which an empire will only build half of the ships they need in each squadron. The amount of squadrons is not modified. 0 to deactivate (default: 7) -->
 		<t id="284">8000</t> <!-- Duration of the message that pops up when one of your asset is killed, in ms. 0 to deactivate. (default: 8000) -->
-				
-				
 				
 <!-- ====================================================================================== -->
 <!-- ====================================================================================== -->

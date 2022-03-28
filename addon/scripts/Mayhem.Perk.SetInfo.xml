@@ -185,6 +185,40 @@
 			<text> </text>
 			<text>(</text>
 			<text> </text>
+			<text>'Повышение налога 1'</text>
+			<text> </text>
+			<text>)</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'Увеличение налога на 60%.'</text>
+		</line>
+		<line linenr="016" indent="">
+			<text>table</text>
+			<text> </text>
+			<text>set</text>
+			<text> </text>
+			<var>$table</var>
+			<text> </text>
+			<text>(</text>
+			<text> </text>
+			<text>'Повышение налога 2'</text>
+			<text> </text>
+			<text>)</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'Увеличение налога на 40%.'</text>
+		</line>
+		<line linenr="017" indent="">
+			<text>table</text>
+			<text> </text>
+			<text>set</text>
+			<text> </text>
+			<var>$table</var>
+			<text> </text>
+			<text>(</text>
+			<text> </text>
 			<text>'ЭМИ'</text>
 			<text> </text>
 			<text>)</text>
@@ -193,7 +227,7 @@
 			<text> </text>
 			<text>'Форпост оснащается устройством электромагнитного импульса для снятия всех щитов в секторе.'</text>
 		</line>
-		<line linenr="016" indent="">
+		<line linenr="018" indent="">
 			<text>table</text>
 			<text> </text>
 			<text>set</text>
@@ -210,7 +244,7 @@
 			<text> </text>
 			<text>'Добавляет максимальное количество перков для Форпостов смежных секторов.'</text>
 		</line>
-		<line linenr="017" indent="">
+		<line linenr="019" indent="">
 			<text>table</text>
 			<text> </text>
 			<text>set</text>
@@ -227,7 +261,7 @@
 			<text> </text>
 			<text>'Создаётся автоматизированный дрон пополнения припасов кораблей в текущем секторе.'</text>
 		</line>
-		<line linenr="018" indent="">
+		<line linenr="020" indent="">
 			<text>table</text>
 			<text> </text>
 			<text>set</text>
@@ -244,7 +278,7 @@
 			<text> </text>
 			<text>'Позволит Форпосту производить батарейки учитывая освещенность сектора.'</text>
 		</line>
-		<line linenr="019" indent="">
+		<line linenr="021" indent="">
 			<text>table</text>
 			<text> </text>
 			<text>set</text>
@@ -261,7 +295,7 @@
 			<text> </text>
 			<text>'Бесплатная доставка из орбитального хранилища, доступного в разделе Логистика -&gt;Склад.'</text>
 		</line>
-		<line linenr="020" indent="">
+		<line linenr="022" indent="">
 			<text>table</text>
 			<text> </text>
 			<text>set</text>
@@ -278,7 +312,7 @@
 			<text> </text>
 			<text>'Нет расходов на обслуживание пристыкованных кораблей + коэффициенты обслуживания медленно восстанавливаются до 133%.'</text>
 		</line>
-		<line linenr="021" indent="">
+		<line linenr="023" indent="">
 			<text>table</text>
 			<text> </text>
 			<text>set</text>
@@ -295,7 +329,7 @@
 			<text> </text>
 			<text>'Защищает ваши корабли от атак пиратов в текущем секторе.'</text>
 		</line>
-		<line linenr="022" indent="">
+		<line linenr="024" indent="">
 			<text>table</text>
 			<text> </text>
 			<text>set</text>
@@ -312,7 +346,7 @@
 			<text> </text>
 			<text>'Защищает данный Форпост от несчастных случаев.'</text>
 		</line>
-		<line linenr="023" indent="">
+		<line linenr="025" indent="">
 			<text>table</text>
 			<text> </text>
 			<text>set</text>
@@ -329,7 +363,7 @@
 			<text> </text>
 			<text>'Преобразует местную исследовательскую станцию в Хакерскую станцию. Очки исследования не используются.'</text>
 		</line>
-		<line linenr="024" indent="">
+		<line linenr="026" indent="">
 			<text>table</text>
 			<text> </text>
 			<text>set</text>
@@ -344,9 +378,9 @@
 			<text> </text>
 			<text>=</text>
 			<text> </text>
-			<text>'Сокращает обслуживания вдвое, но увеличивается время строительства кораблей.'</text>
+			<text>'Maintenance is halved, but building ships takes twice as long.'</text>
 		</line>
-		<line linenr="025" indent="">
+		<line linenr="027" indent="">
 			<text>table</text>
 			<text> </text>
 			<text>set</text>
@@ -363,8 +397,8 @@
 			<text> </text>
 			<text>'Развернуть кольцо лазеров вокруг Форпоста. Не респаунится.'</text>
 		</line>
-		<line linenr="026" indent="" />
-		<line linenr="027" indent="">
+		<line linenr="028" indent="" />
+		<line linenr="029" indent="">
 			<text>set</text>
 			<text> </text>
 			<text>global</text>
@@ -380,8 +414,8 @@
 			<text>=</text>
 			<var>$table</var>
 		</line>
-		<line linenr="028" indent="" />
-		<line linenr="029" indent="">
+		<line linenr="030" indent="" />
+		<line linenr="031" indent="">
 			<text>return</text>
 			<text> </text>
 			<var>$table</var>
@@ -397,7 +431,7 @@
 			<sval type="array" size="1">
 				<sval type="string" val="table" />
 			</sval>
-			<sval type="array" size="23">
+			<sval type="array" size="25">
 				<sval type="array" size="2">
 					<sval type="int" val="1706" />
 					<sval type="int" val="0" />
@@ -488,6 +522,24 @@
 					<sval type="int" val="131074" />
 					<sval type="int" val="0" />
 					<sval type="int" val="5" />
+					<sval type="string" val="Повышение налога 1" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Увеличение налога на 60%." />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="1708" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Повышение налога 2" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Увеличение налога на 40%." />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="1708" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="5" />
 					<sval type="string" val="ЭМИ" />
 					<sval type="int" val="5" />
 					<sval type="string" val="Форпост оснащается устройством электромагнитного импульса для снятия всех щитов в секторе." />
@@ -571,7 +623,7 @@
 					<sval type="int" val="5" />
 					<sval type="string" val="Передовые технологии" />
 					<sval type="int" val="5" />
-					<sval type="string" val="Сокращает обслуживания вдвое, но увеличивается время строительства кораблей." />
+					<sval type="string" val="Maintenance is halved, but building ships takes twice as long." />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="1708" />
@@ -615,11 +667,11 @@
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="21" />
+					<sval type="int" val="23" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="22" />
+					<sval type="int" val="24" />
 					<sval type="int" val="2" />
 				</sval>
 			</sval>
